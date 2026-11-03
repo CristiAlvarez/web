@@ -99,23 +99,41 @@
                 </header>
                 <article>
                     <h3>Formulario uno</h3>
-                    <form action="../pages/enviado.html" method="get" enctype="multipart/form-data" class="form" id="form"></form>
+                    <form action="../pages/enviado.html" method="get" enctype="multipart/form-data" class="form"></form>
                     <fieldset>
                         <legend>Formulario de inscripción a un curso</legend>
                         <fieldset>
                             <legend>1. ¿Cuál es tu nivel de conocimiento?</legend>
                             <ul>
-                                <li class="radio">
-                                    <input type="radio" name="principiante" value="p" id="principiante" />
+                                <li>
+                                    <input type="radio" name="nivel" value="0" id="principiante" />
                                     <label for="principiante">Principiante</label>
                                 </li>
-                                <li class="radio">
-                                    <input type="radio" name="intermedio" value="i" id="intermedio" />
+                                <li>
+                                    <input type="radio" name="nivel" value="1" id="intermedio" />
                                     <label for="intermedio">Intermedio</label>
                                 </li>
-                                <li class="radio">
-                                    <input type="radio" name="avanzado" value="a" id="avanzado" />
+                                <li>
+                                    <input type="radio" name="nivel" value="2" id="avanzado" />
                                     <label for="avanzado">Avanzado</label>
+                                </li>
+                            </ul>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>2.</legend>
+                            <ul>
+                                <li>
+                                    <input type="radio" name="nivel" value="0" id="principiante" />
+                                    <label for="principiante"></label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="nivel" value="1" id="intermedio" />
+                                    <label for="intermedio"></label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="nivel" value="2" id="avanzado" />
+                                    <label for="avanzado"></label>
                                 </li>
                             </ul>
                         </fieldset>
