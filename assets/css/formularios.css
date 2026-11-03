@@ -1,6 +1,5 @@
 section.textos article {
     margin: 0 auto;
-    background-color: lime;
 }
 form.form {
     display: inline-block;
@@ -10,6 +9,7 @@ form.form fieldset {
     margin: 1em;
     border-radius: 5px;
     border: 1px rgba(0, 0, 0, 0.22) solid;
+    background-color: lime;
 }
 
 form.form fieldset legend {
