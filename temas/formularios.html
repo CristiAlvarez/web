@@ -105,15 +105,15 @@
                         <fieldset>
                             <legend>1. ¿Cuál es tu nivel de conocimiento?</legend>
                             <ul>
-                                <li>
+                                <li class="radio">
                                     <input type="radio" name="nivel" value="0" id="principiante" />
                                     <label for="principiante">Principiante</label>
                                 </li>
-                                <li>
+                                <li class="radio">
                                     <input type="radio" name="nivel" value="1" id="intermedio" />
                                     <label for="intermedio">Intermedio</label>
                                 </li>
-                                <li>
+                                <li class="radio">
                                     <input type="radio" name="nivel" value="2" id="avanzado" />
                                     <label for="avanzado">Avanzado</label>
                                 </li>
@@ -121,19 +121,27 @@
                         </fieldset>
 
                         <fieldset>
-                            <legend>2.</legend>
+                            <legend>3. ¿Qué temas te interesan?</legend>
                             <ul>
                                 <li>
-                                    <input type="radio" name="nivel" value="0" id="principiante" />
-                                    <label for="principiante"></label>
+                                    <input type="checkbox" name="informatica" id="informatica" />
+                                    <label for="informatica">Informática </label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="nivel" value="1" id="intermedio" />
-                                    <label for="intermedio"></label>
+                                    <input type="checkbox" name="programacion" id="programacion" />
+                                    <label for="programacion">Programación </label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="nivel" value="2" id="avanzado" />
-                                    <label for="avanzado"></label>
+                                    <input type="checkbox" name="diseño-grafico" id="diseño-grafico" />
+                                    <label for="diseño-grafico">Diseño gráfico</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="ia" id="ia" />
+                                    <label for="ia">Inteligencia artificial </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="marketing-digital" id="marketing-digital" />
+                                    <label for="marketing-digital">Márketing digital </label>
                                 </li>
                             </ul>
                         </fieldset>
