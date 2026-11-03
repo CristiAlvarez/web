@@ -1,5 +1,6 @@
 section.textos article {
     margin: 0 auto;
+    background-color: lime;
 }
 form.form {
     display: inline-block;
