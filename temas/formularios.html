@@ -101,21 +101,21 @@
                     <h3>Formulario uno</h3>
                     <form action="../pages/enviado.html" method="get" enctype="multipart/form-data" id="form" class="form">
                         <fieldset>
-                            <legend>Formulario de inscripción a un curso</legend>
+                            <legend>------ Formulario de inscripción a un curso ------</legend>
                             <fieldset>
-                                <legend>1. ¿Cuál es tu nivel de conocimiento?</legend>
+                                <legend>1 ¿Cuál es tu nivel de conocimiento?</legend>
                                 <ul>
-                                    <li class="radio">
-                                        <input type="radio" name="nivel" value="0" id="principiante" />
+                                    <li>
+                                        <input type="radio" name="nivel" value="0" id="principiante" required />
                                         <label for="principiante">Principiante</label>
                                     </li>
 
-                                    <li class="radio">
+                                    <li>
                                         <input type="radio" name="nivel" value="1" id="intermedio" />
                                         <label for="intermedio">Intermedio</label>
                                     </li>
 
-                                    <li class="radio">
+                                    <li>
                                         <input type="radio" name="nivel" value="2" id="avanzado" />
                                         <label for="avanzado">Avanzado</label>
                                     </li>
@@ -123,10 +123,10 @@
                             </fieldset>
 
                             <fieldset>
-                                <legend>2. ¿Qué temas te interesan?</legend>
+                                <legend>2 ¿Qué temas te interesan?</legend>
                                 <ul>
                                     <li>
-                                        <input type="checkbox" name="temas[]" id="interes-1" value="Informática" />
+                                        <input type="checkbox" name="temas[]" id="interes-1" value="Informática" required />
                                         <label for="interes-1">Informática </label>
                                     </li>
 
@@ -153,14 +153,14 @@
                             </fieldset>
 
                             <fieldset>
-                                <legend>3. ¿Tienes experiencia previa?</legend>
+                                <legend>3 ¿Tienes experiencia previa?</legend>
                                 <ul>
-                                    <li class="radio">
-                                        <input type="radio" name="experiencia" value="True" id="true" />
+                                    <li>
+                                        <input type="radio" name="experiencia" value="True" id="true" required />
                                         <label for="true">Si</label>
                                     </li>
 
-                                    <li class="radio">
+                                    <li>
                                         <input type="radio" name="experiencia" value="false" id="false" />
                                         <label for="false">No</label>
                                     </li>
@@ -168,10 +168,10 @@
                             </fieldset>
 
                             <fieldset>
-                                <legend>4. ¿Qué días tienes disponibilidad?</legend>
+                                <legend>4 ¿Qué días tienes disponibilidad?</legend>
                                 <ul>
                                     <li>
-                                        <input type="checkbox" name="dias[]" id="dia-1" value="Lunes" />
+                                        <input type="checkbox" name="dias[]" id="dia-1" value="Lunes" required />
                                         <label for="dia-1">Lunes </label>
                                     </li>
 
@@ -196,10 +196,42 @@
                                     </li>
                                 </ul>
                             </fieldset>
+
+                            <fieldset>
+                                <legend>5 ¿En qué horario?</legend>
+                                <select name="horario" required>
+                                    <option value="" disabled selected>--Selecciona una opción--</option>
+                                    <option value="Mañana">Mañana</option>
+                                    <option value="Tarde">Tarde</option>
+                                    <option value="Indiferente">Indiferente</option>
+                                </select>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>6 ¿En qué modalidad quieres realizar el curso?</legend>
+                                <select name="modalidad" required>
+                                    <option value="" disabled selected>--Selecciona una opción--</option>
+                                    <option value="Presencial">Presencial</option>
+                                    <option value="Teleformación">Teleformación</option>
+                                    <option value="Híbrido">Semipresencial</option>
+                                </select>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>7 ¿Cómo has conocido el curso?</legend>
+                                <select name="referencia" required>
+                                    <option value="" disabled selected>--Elige una opción--</option>
+                                    <option value="RRSS">Redes Sociales</option>
+                                    <option value="Internet">Internet</option>
+                                    <option value="Personas">Amigos o familiares</option>
+                                    <option value="Publicidad">Publicidad</option>
+                                </select>
+                            </fieldset>
                         </fieldset>
+
                         <ul class="enviar">
                             <li>
-                                <input type="submit" value="Inscribirme" id="inscripcion" />
+                                <input type="submit" value="Inscribirme" />
                             </li>
 
                             <li>
