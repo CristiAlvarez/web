@@ -100,53 +100,113 @@
                 <article>
                     <h3>Formulario uno</h3>
                     <form action="../pages/enviado.html" method="get" enctype="multipart/form-data" id="form" class="form">
-                    <fieldset>
-                        <legend>Formulario de inscripción a un curso</legend>
                         <fieldset>
-                            <legend>1. ¿Cuál es tu nivel de conocimiento?</legend>
-                            <ul>
-                                <li class="radio">
-                                    <input type="radio" name="nivel" value="0" id="principiante" />
-                                    <label for="principiante">Principiante</label>
-                                </li>
-                                <li class="radio">
-                                    <input type="radio" name="nivel" value="1" id="intermedio" />
-                                    <label for="intermedio">Intermedio</label>
-                                </li>
-                                <li class="radio">
-                                    <input type="radio" name="nivel" value="2" id="avanzado" />
-                                    <label for="avanzado">Avanzado</label>
-                                </li>
-                            </ul>
-                        </fieldset>
+                            <legend>Formulario de inscripción a un curso</legend>
+                            <fieldset>
+                                <legend>1. ¿Cuál es tu nivel de conocimiento?</legend>
+                                <ul>
+                                    <li class="radio">
+                                        <input type="radio" name="nivel" value="0" id="principiante" />
+                                        <label for="principiante">Principiante</label>
+                                    </li>
 
-                        <fieldset>
-                            <legend>3. ¿Qué temas te interesan?</legend>
-                            <ul>
-                                <li>
-                                    <input type="checkbox" name="informatica" id="informatica" />
-                                    <label for="informatica">Informática </label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="programacion" id="programacion" />
-                                    <label for="programacion">Programación </label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="diseño-grafico" id="diseño-grafico" />
-                                    <label for="diseño-grafico">Diseño gráfico</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="ia" id="ia" />
-                                    <label for="ia">Inteligencia artificial </label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="marketing-digital" id="marketing-digital" />
-                                    <label for="marketing-digital">Márketing digital </label>
-                                </li>
-                            </ul>
-                            </form>
+                                    <li class="radio">
+                                        <input type="radio" name="nivel" value="1" id="intermedio" />
+                                        <label for="intermedio">Intermedio</label>
+                                    </li>
+
+                                    <li class="radio">
+                                        <input type="radio" name="nivel" value="2" id="avanzado" />
+                                        <label for="avanzado">Avanzado</label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>2. ¿Qué temas te interesan?</legend>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" name="temas[]" id="interes-1" value="Informática" />
+                                        <label for="interes-1">Informática </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="temas[]" id="interes-2" value="Programación" />
+                                        <label for="interes-2">Programación </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="temas[]" id="interes-3" value="Diseño gráfico" />
+                                        <label for="interes-3">Diseño gráfico</label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="temas[]" id="interes-4" value="Inteligencia Artificial" />
+                                        <label for="interes-4">Inteligencia artificial </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="temas[]" id="interes-5" value="Márketing digital" />
+                                        <label for="interes-5">Márketing digital </label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>3. ¿Tienes experiencia previa?</legend>
+                                <ul>
+                                    <li class="radio">
+                                        <input type="radio" name="experiencia" value="True" id="true" />
+                                        <label for="true">Si</label>
+                                    </li>
+
+                                    <li class="radio">
+                                        <input type="radio" name="experiencia" value="false" id="false" />
+                                        <label for="false">No</label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>4. ¿Qué días tienes disponibilidad?</legend>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" name="dias[]" id="dia-1" value="Lunes" />
+                                        <label for="dia-1">Lunes </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="dias[]" id="dia-2" value="Martes" />
+                                        <label for="dia-2">Martes </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="dias[]" id="dia-3" value="Miércoles" />
+                                        <label for="dia-3">Miércoles</label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="dias[]" id="dia-4" value="Jueves" />
+                                        <label for="dia-4">Jueves </label>
+                                    </li>
+
+                                    <li>
+                                        <input type="checkbox" name="dias[]" id="dia-5" value="Viernes" />
+                                        <label for="dia-5">Viernes</label>
+                                    </li>
+                                </ul>
+                            </fieldset>
                         </fieldset>
-                    </fieldset>
+                        <ul class="enviar">
+                            <li>
+                                <input type="submit" value="Inscribirme" id="inscripcion" />
+                            </li>
+
+                            <li>
+                                <input type="reset" value="Eliminar datos" />
+                            </li>
+                        </ul>
+                    </form>
                 </article>
             </section>
         </main>
