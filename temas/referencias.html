@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <!-- Juego de caracteres de casi todos los idiomas humanos (incluidos ñ, tildes ...) -->
+        <meta charset="utf-8" />
+        <!-- Escala inicial y renderizado _responsive_ por el ancho del dispositivo -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Compatibilidad con Microsoft Explorer -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- Indéxame NO y sígueme NO -->
+        <meta name="robots" content="noIndex, noFollow" />
+        <!-- Breve descripción del sitio que se verá en los resultados de búsqueda -->
+        <meta name="description" content="Sitio web de prueba elaborado en el curso de Confección y Publicación de Páginas Web (IFCD0110). Unidad Formativa UF1303, Elaboración de hojas de estilos" />
+
+        <!-- Utilícese una hoja de estilos Normalize -->
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
+        <!-- Ruta a las hojas de visibilidad -->
+        <link rel="stylesheet" href="../assets/css/visibilidad.css" />
+        <!-- Ruta a las variables -->
+        <link rel="stylesheet" href="../assets/css/variables.css" />
+        <!-- Ruta a Hover.css -->
+        <link rel="stylesheet" href="../assets/css/hover.css" />
+        <!-- Ruta a la galería y al carrousel -->
+        <link rel="stylesheet" href="../assets/css/imagenes.css" />
+        <link rel="stylesheet" href="../assets/css/carrousel.css" />
+        <!-- Ruta a Media Queris -->
+        <link rel="stylesheet" href="../assets/css/mediaqueris.css" />
+        <!-- Ruta a Logo web-->
+        <link rel="stylesheet" href="../assets/css/logo.css" />
+        <!-- Ruta a transformers -->
+        <link rel="stylesheet" href="../assets/css/transformers.css" />
+        <!-- Ruta a edición menú principal -->
+        <link rel="stylesheet" href="../assets/css/menu.css" />
+
+        <!-- Ruta a las tipografías -->
+        <link rel="stylesheet" href="../assets/css/tipografia.css" />
+        <!-- Ruta a las hojas de estilos -->
+        <link rel="stylesheet" href="../assets/css/estilos.css" />
+
+        <!-- Enlaces a Google Fonts -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tourney:ital,wdth,wght@0,75..125,100..900;1,75..125,100..900&display=swap" rel="stylesheet" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        <!-- Título de la pestaña del navegador -->
+        <title>UF1303 | Elaboración de hojas de estilos</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="#" class="no-border" title="Mi página FlexBox">
+                <figure class="logo"></figure>
+                <h1 class="pechado">Página FlexBox Cristi Álvarez</h1></a
+            >
+        </header>
+
+        <nav class="principal" aria-label="Navegación principal">
+            <h2 class="pechado">Menú Principal</h2>
+            <input id="icon-menu" name="icon-menu" type="checkbox" />
+            <label for="icon-menu" class="icon-menu" aria-label="Abrir/Cerrar menú">Menú</label>
+            <ul>
+                <li>
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="#">Temas</a>
+                    <ul>
+                        <li>
+                            <a href="imagenes.html">Imágenes</a>
+                        </li>
+                        <li>
+                            <a href="transformer.html">Transiciones y transformers</a>
+                        </li>
+                        <li>
+                            <a href="responsive-carrousel.html">Carrouseles</a>
+                        </li>
+                        <li>
+                            <a href="formularios.html">Formularios</a>
+                        </li>
+                        <li>
+                            <a href="regex.html">Patterns</a>
+                        </li>
+                        <li>
+                            <a href="#">Referencias</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="legal/lopd.html">Nosotros</a>
+                </li>
+                <li>
+                    <a href="pages/contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="agua">
+            <section>
+                <header class="portada img-before">
+                    <h2 class="hvr-wobble-to-bottom-right">Referencias teóricas</h2>
+                </header>
+                <article>
+                    <h3>Referencias teóricas</h3>
+                    <p>Enlaces de interés:</p>
+
+                    <ul class="ca-enlaces">
+                        <li>
+                            <a href="./assets/pdf/UF1303_Elaboracion-hojas-de-estilo.pdf" target="_blank" title="Abrir .pdf en una nueva pestaña"
+                                >UF1303 - Elaboración hojas de estilo | Manual teórico &nbsp;
+                                <sup>(PDF)</sup>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./assets/pdf/CSS_Guia_ref_rap.pdf" target="_blank" title="Abrir .pdf en una nueva pestaña">
+                                Guía de referencia rápida de CSS &nbsp;
+                                <sup>(PDF)</sup>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./assets/pdf/CSS_Manual_rapido.pdf" target="_blank" title="Abrir .pdf en una nueva pestaña"
+                                >Manual rápido de CSS &nbsp;
+                                <sup>(PDF)</sup>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./assets/pdf/CSS_posicionamiento_relativo_absoluto.pdf" target="_blank" title="Abrir .pdf en una nueva pestaña"
+                                >Posicionamiento relativo/absoluto en CSS &nbsp;
+                                <sup>(PDF)</sup>
+                            </a>
+                        </li>
+
+                        <li><a href="https://es.w3docs.com/learn-css/the-ultimate-guide-to-flexbox" target="_blank" title="Abrir web W3Docs en una nueva pestaña"> Guía definitiva de FlexBox | W3Schools</a></li>
+                    </ul>
+                </article>
+            </section>
+        </main>
+    </body>
+</html>

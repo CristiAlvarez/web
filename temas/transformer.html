@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <!-- Juego de caracteres de casi todos los idiomas humanos (incluidos ñ, tildes ...) -->
+        <meta charset="utf-8" />
+        <!-- Escala inicial y renderizado _responsive_ por el ancho del dispositivo -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Compatibilidad con Microsoft Explorer -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- Indéxame NO y sígueme NO -->
+        <meta name="robots" content="noIndex, noFollow" />
+        <!-- Breve descripción del sitio que se verá en los resultados de búsqueda -->
+        <meta name="description" content="Sitio web de prueba elaborado en el curso de Confección y Publicación de Páginas Web (IFCD0110). Unidad Formativa UF1303, Elaboración de hojas de estilos" />
+
+        <!-- Utilícese una hoja de estilos Normalize -->
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
+        <!-- Ruta a las hojas de visibilidad -->
+        <link rel="stylesheet" href="../assets/css/visibilidad.css" />
+        <!-- Ruta a las variables -->
+        <link rel="stylesheet" href="../assets/css/variables.css" />
+        <!-- Ruta a Hover.css -->
+        <link rel="stylesheet" href="../assets/css/hover.css" />
+        <!-- Ruta a la galería y al carrousel -->
+        <link rel="stylesheet" href="../assets/css/imagenes.css" />
+        <link rel="stylesheet" href="../assets/css/carrousel.css" />
+        <!-- Ruta a Media Queris -->
+        <link rel="stylesheet" href="../assets/css/mediaqueris.css" />
+        <!-- Ruta a Logo web-->
+        <link rel="stylesheet" href="../assets/css/logo.css" />
+        <!-- Ruta a transformers -->
+        <link rel="stylesheet" href="../assets/css/transformers.css" />
+        <!-- Ruta a edición menú principal -->
+        <link rel="stylesheet" href="../assets/css/menu.css">
+
+
+        <!-- Ruta a las tipografías -->
+         <link rel="stylesheet" href="../assets/css/tipografia.css">
+        <!-- Ruta a las hojas de estilos -->
+        <link rel="stylesheet" href="../assets/css/estilos.css" />
+
+        <!-- Enlaces a Google Fonts -->
+
+      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tourney:ital,wdth,wght@0,75..125,100..900;1,75..125,100..900&display=swap" rel="stylesheet">
+      
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- Título de la pestaña del navegador -->
+        <title>UF1303 | Elaboración de hojas de estilos</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="#" class="no-border" title="Mi página FlexBox">
+                <figure class="logo"></figure>
+            <h1 class="pechado">Página FlexBox Cristi Álvarez</h1></a>
+        </header>
+
+        <nav class="principal" aria-label="Navegación principal">
+            <h2 class="pechado">Menú Principal</h2>
+            <input id="icon-menu" name="icon-menu" type="checkbox" />
+            <label for="icon-menu" class="icon-menu" aria-label="Abrir/Cerrar menú">Menú</label>
+            <ul>
+                <li>
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="#">Temas</a>
+                    <ul>
+                        <li>
+                            <a href="imagenes.html">Imágenes</a>
+                        </li>
+                        <li>
+                            <a href="#">Transiciones y transformers</a>
+                        </li>
+                        <li>
+                            <a href="responsive-carrousel.html">Carrouseles</a>
+                        </li>
+                        <li>
+                            <a href="formularios.html">Formularios</a>
+                        </li>
+                        <li>
+                            <a href="regex.html">Patterns</a>
+                        </li>
+                        <li>
+                            <a href="referencias.html">Referencias</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="legal/lopd.html">Nosotros</a>
+                </li>
+                <li>
+                    <a href="pages/contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="agua">
+            <section>
+                <header class="portada img-before">
+                    <h2 class="hvr-wobble-to-bottom-right">Transiciones y transformers</h2>
+                </header>
+                <article>
+                    <h3>Transiciones CSS3</h3>
+                    <!-- <figure class="ca-transicion-color"></figure> -->
+                      <figure class="ca-tractor">
+                        <span></span>
+                    </figure>
+                </article>
+
+                <article>
+                    <h3>Transformer</h3>
+                    <p>La propiedad <code>< transform ></code> mueve, gira, escala e inclina elementos sin alterar el diseño de la página: el resto de elementos no se entera de que algo se ha movido. Por eso es la favorita para hacer animaciones fluidas. Pasa el ratón por cada demo. Después abre el CSS de esta página y busca el bloque del ejercicio: está todo comentado. Para que los cambios sean suaves, todos los ejercicios llevan transition (la propiedad que ya conoces).</p>
+
+                    <ul class="demo">
+                        <li>
+                            <span class="translate-x">X</span><figure></figure>
+                            <figcaption>Translación X</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="translate-y">Y</span></figure>
+                            <figcaption>Translación Y</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="translate-xy">X,Y</span></figure>
+                            <figcaption>Translación XY</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="rotate-45">45º</span></figure>
+                            <figcaption>Rotación 45º</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="rotate-90">90º</span></figure>
+                            <figcaption>Rotación 90º</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="rotate">1 vuelta</span></figure>
+                            <figcaption>Rotación completa</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="scale-50">Escala 1.5</span></figure>
+                            <figcaption>Zoom</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="scale-x">Escala X</span></figure>
+                            <figcaption>Zoom X</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="scale-y">Escala Y</span></figure>
+                            <figcaption>Zoom Y</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="skew-x">Skew X</span></figure>
+                            <figcaption>Skew X <small>(25deg)</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="skew-y">Skew Y</span></figure>
+                            <figcaption>Skew Y <small>(25deg)</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="skew">Skew</span></figure>
+                            <figcaption>Skew <small>(20deg, 10deg)</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="center">Centro</span></figure>
+                            <figcaption>Giro central <small>(40º)</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="top-left">Descolgado</span></figure>
+                            <figcaption>Giro izq <small>(40º)</small></figcaption>
+                        </li>
+
+                        <li>
+                            <span class="bottom-right">Caballito</span><figure></figure>
+                            <figcaption>Levanta derecha <small>(40º)</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="caja-a">A</span></figure>
+                            <figcaption>A: mover y girar</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="caja-b">B</span></figure>
+                            <figcaption>B: girar y mover</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="triplete">Booh!</span></figure>
+                            <figcaption>Triple función</small></figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="perspec-x">Rotate X</span></figure>
+                            <figcaption>Perspectiva X</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="perspec-y">Rotate Y</span></figure>
+                            <figcaption>Perspectiva Y</figcaption>
+                        </li>
+
+                        <li>
+                            <figure><span class="perspec-xy"><span>Rotate X + Y</span></figure>
+                            <figcaption>Perspetiva X +Y</figcaption>
+                        </li>
+                    </ul>
+
+                </article>
