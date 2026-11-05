@@ -115,7 +115,7 @@
                                         - Solo letras del alfabeto español (con tildes, diéressis y ñ) y espacios.
                                         - Ojo al guión del patrón!!!!!!!!!!!!!
                                     -->
-                                    <input type="text" id="nombre" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ \-]{3,}" title="El nombre sólo puede contener letras, espacios en blanco y/o guión normal (-)" maxlength="50" />
+                                    <input type="text" id="nombre" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ \-]{3,}" placeholder="Nombre" title="El nombre sólo puede contener letras, espacios en blanco y/o guión normal (-)" maxlength="50" />
                                 </li>
                                 <li>
                                     <label for="cp">Código postal</label>
@@ -129,7 +129,7 @@
 
 
                                     -->
-                                    <input type="text" id="cp" name="cp" inputmode="numeric" pattern="[0-5]\d{4}" title="Introduzca un código postal válido" />
+                                    <input type="text" id="cp" name="cp" placeholder="27000" inputmode="numeric" pattern="[0-5]\d{4}" title="Introduzca un código postal válido" />
                                 </li>
                                 <li>
                                     <label for="movil">Teléfono móvil</label>
@@ -138,7 +138,7 @@
                                         - Exactamente 9 dígitos, sin espacios ni prefijo.
                                         - Debe empezar por 6 o 7.
                                     -->
-                                    <input type="tel" id="movil" name="movil" pattern="[6-7]{1}[\d]{8}" title="El número de teléfono español debe ser los 9 dígitos sin espacio ni guiones" />
+                                    <input type="tel" id="movil" name="movil" placeholder="600123456" pattern="[6-7]{1}[\d]{8}" title="El número de teléfono español debe ser los 9 dígitos sin espacio ni guiones" />
                                 </li>
                                 <li>
                                     <label for="color">Color hexadecimal</label>
@@ -146,7 +146,7 @@
                                         REQUISITOS:
                                         - Almohadilla (#) seguida de exactamente 6 caracteres hexadecimales (0-9, a-f).
                                     -->
-                                    <input type="text" id="color" name="color" pattern="#[0-9a-fA-F]{6}" title="El código de color debe comenzar por '#' seguida de 6 caracteres hexadecimales. Ejemplo: #1b7f3b" />
+                                    <input type="text" id="color" placeholder="#174c70" name="color" pattern="#[0-9a-fA-F]{6}" title="El código de color debe comenzar por '#' seguida de 6 caracteres hexadecimales. Ejemplo: #1b7f3b" />
                                 </li>
                             </ul>
                         </fieldset>
@@ -168,7 +168,7 @@
                                         NOTA: pattern solo comprueba el FORMATO. Calcular si la letra
                                         es la correcta (resto de dividir entre 23) exige JavaScript o PHP, p.ej.
                                     -->
-                                    <input type="text" id="dni" name="dni" pattern="[\d]{8}[A-Z]{1}" title="Introduzca un DNI válido. Empezando con 8 dígitos y finalizando con una letra en mayúsculas, sin espacios, ni puntos, ni guiones." />
+                                    <input type="text" id="dni" name="dni" placeholder="12345678A" pattern="[\d]{8}[A-Z]{1}" title="Introduzca un DNI válido. Empezando con 8 dígitos y finalizando con una letra en mayúsculas, sin espacios, ni puntos, ni guiones." />
                                 </li>
                                 <li>
                                     <label for="matricula">Matrícula de coche</label>
@@ -178,7 +178,7 @@
                                         - Puede llevar un espacio o un guion entre números y letras (a votar).
                                         - El espacio y el guión se puedn poner [\s\-]
                                     -->
-                                    <input type="text" id="matricula" name="matricula" pattern="\d{4}( |-)?[BCDFGHJKLMNPRSTVWZ]{3}" title="Introduzca una matrícula válida" />
+                                    <input type="text" id="matricula" name="matricula" placeholder="0000BCD" pattern="\d{4}( |-)?[BCDFGHJKLMNPRSTVWZ]{3}" title="Introduzca una matrícula válida" />
                                 </li>
                                 <li>
                                     <label for="hora">Hora (24 h)</label>
@@ -188,7 +188,7 @@
                                         - HH = [01]\d|2[0-3] (0 o 1 hasta 19 y desde 20 a 23)
                                         - MM = [0-5]\d o [0-5][0-9]
                                     -->
-                                    <input type="text" id="hora" name="hora" pattern="([01]\d|2[0-3]):[0-5]\d" title="Formato HH:MM entre 00:00 y 23:59" />
+                                    <input type="text" id="hora" placeholder="11:05" name="hora" pattern="([01]\d|2[0-3]):[0-5]\d" title="Formato HH:MM entre 00:00 y 23:59" />
                                 </li>
                                 <li>
                                     <label for="precio">Precio en euros</label>
@@ -196,7 +196,7 @@
                                         REQUISITOS:
                                         - Número entero, o con coma y 1 o 2 decimales. Sin punto ni símbolo €.
                                     -->
-                                    <input type="number" id="precio" name="precio" inputmode="decimal" pattern="[0-9]*(\.[0-9]{1,2})?" min="0.01" step="0.01" title="Separe los decimales con ',' y no ponga el símbolo €" />
+                                    <input type="number" id="precio" name="precio" placeholder="22.35" inputmode="decimal" pattern="[0-9]*(\.[0-9]{1,2})?" min="0.01" step="0.01" title="Separe los decimales con ',' y no ponga el símbolo €" />
                                 </li>
                             </ul>
                         </fieldset>
@@ -282,7 +282,7 @@
 
                             <ul>
                                 <li>
-                                    <label for="dni">DNI:</label>
+                                    <label for="dni">* DNI o NIE:</label>
 
                                     <!-- 
                                         PISTA:
@@ -290,59 +290,59 @@
                                         Los números pueden comenzar por cero.
                                         La letra debe corresponder al resto módulo 23.
                                     -->
-                                    <input type="text" id="dni" name="dni" placeholder="12345678Z" maxlength="9" pattern="\d{8}[A-Z]{1}" title="Introduzca un DNI español válido. Con la letra en mayúsculas" required value="33545842C" />
+                                    <input type="text" id="dni" name="dni" placeholder="12345678Z" maxlength="9" pattern="[0-9X-Z]\d{7}[A-Z]" title="Introduzca un DNI o NIE válido. En mayúsculas y sin espacios" required />
                                 </li>
 
                                 <li>
-                                    <label for="nie">NIE:</label>
-
-                                    <!-- 
-                                        PISTA:
-                                        Comienza por X, Y o Z.
-                                        Después tiene 7 números y una letra.
-                                    -->
-                                    <input type="text" id="nie" name="nie" placeholder="X1234567L" maxlength="9" pattern="[XYZ]\d{7}[A-Z]" title="Introduzca un NIE correcto, empezando y finalizando con una letra" value="Y8574985F" />
-                                </li>
-
-                                <li>
-                                    <label for="nombre">Nombre:</label>
+                                    <label for="nombre">* Nombre:</label>
 
                                     <!-- 
                                         PISTA:
                                         Entre 2 y 30 caracteres.
                                         Admitir letras españolas, acentos y espacios.
                                     -->
-                                    <input type="text" id="nombre" name="nombre" maxlength="30" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ ]{2,}" title="Introduzca su nombre completo" required value="Cigueñal" />
+                                    <input type="text" id="nombre" name="nombre" maxlength="30" placeholder="Nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ ]{2,}" title="Introduzca su nombre completo" required />
                                 </li>
 
                                 <li>
-                                    <label for="apellidos">Apellidos:</label>
+                                    <label for="apellido1">* Primer apellido:</label>
 
                                     <!-- 
                                         PISTA:
                                         Entre 2 y 60 caracteres.
                                         Admitir letras, acentos, espacios y guiones.
                                     -->
-                                    <input type="text" id="apellidos" name="apellidos" maxlength="60" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ\- ]{2,}" title="Introduzca sus apellidos" value="Etxebarrietaaltaleorraga Etxebarrietaaltaleorraga" />
+                                    <input type="text" id="apellido1" placeholder="Apellido primero" name="apellido1" maxlength="60" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ\- ]{2,}" title="Introduzca su primer apellido" />
                                 </li>
 
                                 <li>
-                                    <label for="nacimiento">Fecha de nacimiento:</label>
+                                    <label for="apellido2">Segundo apellido:</label>
+
+                                    <!-- 
+                                        PISTA:
+                                        Entre 2 y 60 caracteres.
+                                        Admitir letras, acentos, espacios y guiones.
+                                    -->
+                                    <input type="text" id="apellido2" placeholder="Apellido segundo" name="apellido2" maxlength="60" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ\- ]{2,}" title="Introduzca su segundo apellido" />
+                                </li>
+
+                                <li>
+                                    <label for="nacimiento">* Fecha de nacimiento:</label>
 
                                     <!-- 
                                         INPUT HTML5: date.
                                         Debe ser una fecha comprendida entre 18 y 100 años.
                                         min y max son restricciones de fecha, no patrones.
                                     -->
-                                    <input type="date" id="nacimiento" name="nacimiento" min="1926-01-01" max="2008-01-01" required value="1986-09-15" title="Ponga una fecha de nacimiento entre el 1926 y 2008." />
+                                    <input type="date" id="nacimiento" name="nacimiento" min="1926-01-01" max="2008-01-01" required title="Ponga una fecha de nacimiento entre el 1926 y 2008." />
                                 </li>
 
                                 <li>
-                                    <label for="estadoCivil">Estado civil:</label>
+                                    <label for="estadoCivil">* Estado civil:</label>
 
                                     <select id="estadoCivil" name="estadoCivil" required>
                                         <option value="">Selecciona...</option>
-                                        <option value="soltero" selected>Soltero/a</option>
+                                        <option value="soltero">Soltero/a</option>
                                         <option value="pareja">Pareja de hecho</option>
                                         <option value="casado">Casado/a</option>
                                         <option value="separado">Separado</option>
@@ -352,9 +352,10 @@
                                 </li>
 
                                 <li>
-                                    <label for="estudios">Estudios mínimos:</label>
+                                    <label for="estudios">* Estudios mínimos:</label>
                                     <select id="estudios" name="estudios" required>
                                         <option value="">Selecciona...</option>
+                                        <option value="0">Sin estudios</option>
                                         <option value="primaria" selected>Primaria</option>
                                         <option value="ESO">ESO</option>
                                         <option value="BAC">BAC</option>
@@ -377,7 +378,7 @@
 
                             <ul>
                                 <li>
-                                    <label for="telefono">Teléfono</label>
+                                    <label for="telefono">* Teléfono</label>
 
                                     <!-- 
                                         PISTA:
@@ -386,18 +387,18 @@
                                         Fijo: comienza por 8 o 9.
                                         No admitir espacios ni prefijos internacionales.
                                     -->
-                                    <input type="tel" id="telefono" name="telefono" placeholder="600123456" maxlength="9" pattern="[67]\d{8}" title="" required value="665307048" />
+                                    <input type="tel" id="telefono" name="telefono" placeholder="600123456" maxlength="9" pattern="[6-9]\d{8}" title="Introduzca un número de contacto móvil o fijo" required />
                                 </li>
 
                                 <li>
-                                    <label for="email">Correo electrónico:</label>
+                                    <label for="email">* Correo electrónico:</label>
 
                                     <!-- 
                                         INPUT HTML5: email.
                                         El navegador comprueba la estructura del correo.
                                         Completar con un pattern para una validación básica.
                                     -->
-                                    <input type="email" id="email" name="email" placeholder="usuario@dominio.es" pattern="" title="" />
+                                    <input type="email" id="email" name="email" placeholder="usuario@dominio.es" pattern="[a-z][a-z0-9._\-]+@[a-z0-9.\-]{1,}\.[a-z]{2,}" minlength="5" maxlength="50" title="Introduzca su dirección de correo electrónico." />
                                 </li>
 
                                 <li>
@@ -415,11 +416,11 @@
                                     <label for="contacto">Buscar contacto (ejemplo):</label>
 
                                     <!-- INPUT HTML5: search -->
-                                    <input type="search" id="contacto" name="contacto" />
+                                    <input type="search" id="contacto" name="contacto" pattern="[a-zA-Z0-9]{2,}" />
                                 </li>
 
                                 <li>
-                                    <label for="password">Contraseña de acceso:</label>
+                                    <label for="password">* Contraseña de acceso:</label>
 
                                     <!-- 
                                         PISTA:
@@ -427,7 +428,7 @@
                                         Al menos una mayúscula, una minúscula,
                                         un número y un carácter especial.
                                     -->
-                                    <input type="password" id="password" name="password" minlength="8" maxlength="16" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}(?=.*[@#,\.\]\[\{\}\+\*)" title="" />
+                                    <input type="password" id="password" name="password" required minlength="8" maxlength="16" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[¡!@#^*]).{8,16}" title="Introduzca entre 8 y 16 caracteres. Al menos debe contener una minúscula, una mayúscula, un número y un caracter especial" />
                                 </li>
                             </ul>
                         </fieldset>
@@ -757,7 +758,7 @@
 
                         <fieldset>
                             <legend>9. Envío de la solicitud</legend>
-
+                            <p><strong>Recuerde:todos los campos marcados con * son obligatorios</strong></p>
                             <ul>
                                 <li>
                                     <!-- INPUT CLÁSICO: submit -->
