@@ -323,7 +323,7 @@
                                         Entre 2 y 60 caracteres.
                                         Admitir letras, acentos, espacios y guiones.
                                     -->
-                                    <input type="text" id="apellidos" name="apellidos" maxlength="60" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ ]{2,}" title="Introduzca sus apellidos" value="Etxebarrietaaltaleorraga Etxebarrietaaltaleorraga" />
+                                    <input type="text" id="apellidos" name="apellidos" maxlength="60" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ\- ]{2,}" title="Introduzca sus apellidos" value="Etxebarrietaaltaleorraga Etxebarrietaaltaleorraga" />
                                 </li>
 
                                 <li>
@@ -334,7 +334,7 @@
                                         Debe ser una fecha comprendida entre 18 y 100 años.
                                         min y max son restricciones de fecha, no patrones.
                                     -->
-                                    <input type="date" id="nacimiento" name="nacimiento" min="1926-01-01" max="2008-01-01" required value="1986-09-15" title="Ponga una fecha de nacimiento entre el 1926 y 2007." />
+                                    <input type="date" id="nacimiento" name="nacimiento" min="1926-01-01" max="2008-01-01" required value="1986-09-15" title="Ponga una fecha de nacimiento entre el 1926 y 2008." />
                                 </li>
 
                                 <li>
@@ -386,7 +386,7 @@
                                         Fijo: comienza por 8 o 9.
                                         No admitir espacios ni prefijos internacionales.
                                     -->
-                                    <input type="tel" id="telefono" name="telefono" placeholder="600123456" maxlength="9" title="" required />
+                                    <input type="tel" id="telefono" name="telefono" placeholder="600123456" maxlength="9" pattern="[67]\d{8}" title="" required value="665307048" />
                                 </li>
 
                                 <li>
@@ -397,7 +397,7 @@
                                         El navegador comprueba la estructura del correo.
                                         Completar con un pattern para una validación básica.
                                     -->
-                                    <input type="email" id="email" name="email" placeholder="usuario@dominio.es" pattern="" title="" required />
+                                    <input type="email" id="email" name="email" placeholder="usuario@dominio.es" pattern="" title="" />
                                 </li>
 
                                 <li>
@@ -427,7 +427,7 @@
                                         Al menos una mayúscula, una minúscula,
                                         un número y un carácter especial.
                                     -->
-                                    <input type="password" id="password" name="password" minlength="" maxlength="" title="" required />
+                                    <input type="password" id="password" name="password" minlength="8" maxlength="16" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,}(?=.*[@#,\.\]\[\{\}\+\*)" title="" />
                                 </li>
                             </ul>
                         </fieldset>
@@ -449,7 +449,7 @@
                                         Admitir letras, números, espacios,
                                         comas, puntos, guiones y barras.
                                     -->
-                                    <input type="text" id="direccion" name="direccion" maxlength="" title="" required />
+                                    <input type="text" id="direccion" name="direccion" maxlength="80" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜçÇ\.\, -/]{5,}" title="" required />
                                 </li>
 
                                 <li>
