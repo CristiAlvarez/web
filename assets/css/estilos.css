@@ -254,3 +254,14 @@ header.portada {
         color: var(--color-h2);
     }
 }
+
+footer {
+    background-color: var(--ca-footer-bg);
+    text-align: center;
+    display: block;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    & p {
+        color: black;
+    }
+}

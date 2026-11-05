@@ -31,7 +31,7 @@
     /* Colores del sitio */
     --ca-bg-color: #faf7f7;
     --color-a: #670b9e;
-    --color-b: #eece80;
+    --color-b: #e0b33f;
     --color-c: #e67f7f;
     --color-texto: #666;
     --color-body: #fefefe;
@@ -91,4 +91,6 @@
     --ca-carrousel-5--medium-large: url("https://pixfill.dev/768x512/84c757/fff");
     --ca-carrousel-5--medium: url("https://pixfill.dev/480x320/84c757/fff");
     --ca-carrousel-5--thumb: url("https://pixfill.dev/300x200/84c757/fff");
+
+    --ca-footer-bg: #680b9e7e;
 }
