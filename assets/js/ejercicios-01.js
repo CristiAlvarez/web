@@ -42,24 +42,41 @@ function dividirDosNumeros() {
 function seleccionaUnaOperacion() {
     let operacion = parseInt(prompt("Seleccione una operación : 1. Suma, 2. Resta, 3. Multiplicación o 4. División"));
 
-    if (operacion === 1) {
-        alert("Ha seleccionado suma");
-        sumarDosNumeros();
+    //     if (operacion === 1) {
+    //         alert("Ha seleccionado SUMA");
+    //         sumarDosNumeros();
+    //     } else if (operacion === 2) {
+    //         alert("Ha seleccionado RESTA");
+    //         restarDosNumeros();
+    //     } else if (operacion === 3) {
+    //         alert("Ha seleccionado MULTIPLICACIÓN");
+    //         multiplicarDosNumeros();
+    //     } else if (operacion === 4) {
+    //         alert("Ha seleccionado DIVISIÓN");
+    //         dividirDosNumeros();
+    //     } else {
+    //         alert("Seleccione una opción válida");
+    //         seleccionaUnaOperacion();
+    //     }
+    // }
+
+    if (operacion < 1 || operacion > 4) {
+        alert("Seleccione una opción válida");
+        operacion = parseInt(prompt("Seleccione una operación : 1. Suma, 2. Resta, 3. Multiplicación o 4. División"));
     } else if (operacion === 2) {
-        alert("Ha seleccionado resta");
+        alert("Ha seleccionado RESTA");
         restarDosNumeros();
     } else if (operacion === 3) {
-        alert("Ha seleccionado multiplicación");
+        alert("Ha seleccionado MULTIPLICACIÓN");
         multiplicarDosNumeros();
     } else if (operacion === 4) {
-        alert("Ha seleccionado división");
+        alert("Ha seleccionado DIVISIÓN");
         dividirDosNumeros();
     } else {
-        alert("Seleccione una opción válida");
-        seleccionaUnaOperacion();
+        alert("Ha seleccionado SUMA");
+        sumarDosNumeros();
     }
 }
-
 // Llamar a las funciones (SIEMPRE)
 // sumarDosNumeros();
 // restarDosNumeros();
