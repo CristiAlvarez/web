@@ -151,6 +151,99 @@ function hacerTablaDeMultiplicar() {
     }
 }
 
+// ---------------- Pares e impares ----------------
+
+function mostrarPares() {
+    let n = parseInt(prompt("Hasta qué número quieres ver los pares?"));
+    let message = "";
+
+    console.log("Números pares del 0 hasta el " + n);
+    console.log("=================================");
+
+    for (let i = 0; i <= n; i += 2) {
+        message += i + ", ";
+    }
+    console.log(message);
+}
+
+function mostrarImpares() {
+    let n = parseInt(prompt("Hasta qué número quieres ver los impares?"));
+    let message = "";
+
+    console.log("Números impares desde el 1 hasta el " + n);
+    console.log("=================================");
+
+    for (let i = 1; i <= n; i += 2) {
+        message += i + ", ";
+    }
+    console.log(message);
+}
+
+function mostrarNumerosDeCincoEnCinco() {
+    let n = parseInt(prompt("Hasta qué número quieres ver los multiplos de 5?"));
+    let message = "";
+
+    console.log("Múltiplos de 5 hasta " + n);
+    console.log("=================================");
+
+    for (let i = 0; i <= n; i += 5) {
+        message += i + ", ";
+    }
+    console.log(message);
+}
+
+// ------------------------------------------------
+//          IF, ELSE Y ELSE IF
+// ------------------------------------------------
+
+function verAprobadoBart() {
+    let corte = parseFloat(prompt("Defina nota de corte:"));
+    let nota = parseFloat(prompt("Qué nota tiene Bart en el exámen?"));
+
+    if (nota >= corte) {
+        alert("¡Bart ha aprobado!");
+    }
+}
+
+function entrarEnElColegio() {
+    let min = parseInt(prompt("Defina edad mínima de acceso:"));
+    let edad = parseInt(prompt("Qué edad tiene Bart?"));
+
+    if (edad >= min) {
+        alert("Bart puede entrar en el colegio!!!!");
+    } else {
+        alert("Bart debe esperar a cumplir los 12 años. :(");
+    }
+}
+
+function clasificarNotasBart() {
+    let nota = parseFloat(prompt("Indique la nota del examen (Valores entre 0 y 10)"));
+
+    // if (nota <= 4) {
+    //     alert("Con un " + nota + " Bart está suspenso!! ");
+    // } else if (nota <= 6) {
+    //     alert("Con un " + nota + " Bart tiene un aprobado!! ");
+    // } else if (nota <= 8) {
+    //     alert("Con un " + nota + " Bart tiene un notable!! ");
+    // } else if (nota < 10) {
+    //     alert("Con un " + nota + " Bart tiene un sobresaliente!! ");
+    // } else {
+    //     alert("Con un " + nota + " Bart tiene una matricula de honor!!  FELICIDADES");
+    // }
+
+    if (nota === 10) {
+        alert("Con un " + nota + " Bart tiene una matricula de honor!!  FELICIDADES");
+    } else if (nota === 9) {
+        alert("Con un " + nota + " Bart tiene un sobresaliente!! ");
+    } else if (nota >= 7) {
+        alert("Con un " + nota + " Bart tiene un notable!! ");
+    } else if (nota >= 5) {
+        alert("Con un " + nota + " Bart tiene un aprobado!! ");
+    } else {
+        alert("Con un " + nota + " Bart está suspenso!! ");
+    }
+}
+
 //------------------------------------------
 // Llamar a las funciones (SIEMPRE)
 // -----------------------------------------
@@ -164,4 +257,10 @@ function hacerTablaDeMultiplicar() {
 // tirarPetardos2();
 // tirarPetardos3();
 // tirarPetardos4();
-hacerTablaDeMultiplicar();
+// hacerTablaDeMultiplicar();
+// mostrarPares();
+// mostrarImpares();
+// mostrarNumerosDeCincoEnCinco();
+// verAprobadoBart();
+// entrarEnElColegio();
+clasificarNotasBart();
