@@ -219,29 +219,29 @@ function entrarEnElColegio() {
 function clasificarNotasBart() {
     let nota = parseFloat(prompt("Indique la nota del examen (Valores entre 0 y 10)"));
 
-    // if (nota <= 4) {
-    //     alert("Con un " + nota + " Bart está suspenso!! ");
-    // } else if (nota <= 6) {
-    //     alert("Con un " + nota + " Bart tiene un aprobado!! ");
-    // } else if (nota <= 8) {
-    //     alert("Con un " + nota + " Bart tiene un notable!! ");
-    // } else if (nota < 10) {
-    //     alert("Con un " + nota + " Bart tiene un sobresaliente!! ");
-    // } else {
-    //     alert("Con un " + nota + " Bart tiene una matricula de honor!!  FELICIDADES");
-    // }
-
-    if (nota === 10) {
-        alert("Con un " + nota + " Bart tiene una matricula de honor!!  FELICIDADES");
-    } else if (nota === 9) {
-        alert("Con un " + nota + " Bart tiene un sobresaliente!! ");
-    } else if (nota >= 7) {
-        alert("Con un " + nota + " Bart tiene un notable!! ");
-    } else if (nota >= 5) {
-        alert("Con un " + nota + " Bart tiene un aprobado!! ");
-    } else {
+    if (nota <= 4) {
         alert("Con un " + nota + " Bart está suspenso!! ");
+    } else if (nota <= 6) {
+        alert("Con un " + nota + " Bart tiene un aprobado!! ");
+    } else if (nota <= 8) {
+        alert("Con un " + nota + " Bart tiene un notable!! ");
+    } else if (nota < 10) {
+        alert("Con un " + nota + " Bart tiene un sobresaliente!! ");
+    } else {
+        alert("Con un " + nota + " Bart tiene una matricula de honor!!  FELICIDADES");
     }
+
+    // if (nota === 10) {
+    //     alert("Con un " + nota + " Bart tiene una matricula de honor!!  FELICIDADES");
+    // } else if (nota === 9) {
+    //     alert("Con un " + nota + " Bart tiene un sobresaliente!! ");
+    // } else if (nota >= 7) {
+    //     alert("Con un " + nota + " Bart tiene un notable!! ");
+    // } else if (nota >= 5) {
+    //     alert("Con un " + nota + " Bart tiene un aprobado!! ");
+    // } else {
+    //     alert("Con un " + nota + " Bart está suspenso!! ");
+    // }
 }
 
 //------------------------------------------
