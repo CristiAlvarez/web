@@ -125,12 +125,30 @@ function tirarPetardos4() {
 
     let i = 1;
     do {
-        message = i + "./ ";
+        message = i + ": ";
         message += frase;
 
         console.log(message);
         i++;
     } while (i <= vueltas);
+}
+
+// ---------------- Tabla de multiplicar ----------------
+
+function hacerTablaDeMultiplicar() {
+    let n = parseInt(prompt("Qué tabla de multiplicar quiere ver??"));
+    let message = "";
+
+    console.log("Tabla del " + n);
+    console.log("------------");
+
+    for (let i = 1; i <= 10; i++) {
+        let multi = n * i;
+        message = n + " x " + i + " = ";
+        message += multi;
+
+        console.log(message);
+    }
 }
 
 //------------------------------------------
@@ -145,4 +163,5 @@ function tirarPetardos4() {
 // tirarPetardos();
 // tirarPetardos2();
 // tirarPetardos3();
-tirarPetardos4();
+// tirarPetardos4();
+hacerTablaDeMultiplicar();
