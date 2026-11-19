@@ -85,9 +85,9 @@ function mediaAritmeticaDeTres() {
 function mediaArtitmeticaDeCualquierNumero() {
     let divisor = parseFloat(prompt("Introduzca el divisor de la media aritmética"));
 
-    let suma,
-        num,
-        resultado = 0;
+    let suma = 0;
+    let num = 0;
+    let resultado = 0;
 
     let message = "La media artimética de ";
     let contador = 1;
@@ -114,30 +114,47 @@ function areaRectangulo() {
     let base = parseFloat(prompt("Indique la base de su rectángulo en cm"));
     let altura = parseFloat(prompt("Indique la altura de su rectángulo en cm"));
     let area = base * altura;
+    let message = "";
 
-    alert("El área del rectágulo es de " + area + " cm2");
+    message = "El área del rectágulo es de " + area;
+    message += " cm2";
+    alert(message);
 }
 
 function areaYLongitudCircunferencia() {
     let radio = parseFloat(prompt("Indique el radio conocido de la circunferencia"));
     let area = Math.PI * radio ** 2;
     let longitud = 2 * Math.PI * radio;
+    let message = "";
 
-    alert("El área de la circunferencia es de " + area + " y la longitud de la circunferencia es de " + longitud);
+    message = "El área de la circunferencia es de " + area;
+    message += " y la longitud de la circunferencia es de " + longitud;
+
+    alert(message);
 }
 
 function celsiusAFharenheit() {
     let celsius = parseFloat(prompt("Indique los grados celsius que quiere convertir a Fahrenheit"));
     let fahrenheit = (9 / 5) * celsius + 32;
-    alert(celsius + " grados Celsius, es equivalente a " + fahrenheit + " grados Faherenheit");
+    let message = "";
+
+    message = celsius + " grados Celsius, es equivalente a ";
+    message += fahrenheit + " grados Faherenheit";
+
+    alert(message);
 }
 
 function calcularPorcentaje() {
     let n1 = parseFloat(prompt("Indique el porcentaje a hayar"));
     let n2 = parseFloat(prompt("Indique el total sobre el que calcular el porcentaje"));
-
+    let message = "";
     let porcentaje = (n1 * 100) / n2;
-    alert("El " + n1 + "% de " + n2 + " es " + porcentaje);
+
+    message = "El " + n1;
+    message += "% de " + n2;
+    message += " es " + porcentaje;
+
+    alert(message);
 }
 
 // ------------------------------------------------
@@ -471,9 +488,8 @@ function identificarMayor() {
 // cuadradoYCubo();
 // calcularPotencia();
 // mediaAritmeticaDeTres();
-mediaArtitmeticaDeCualquierNumero();
+// mediaArtitmeticaDeCualquierNumero();
 // areaRectangulo();
-
 // areaYLongitudCircunferencia();
 // celsiusAFharenheit();
 // calcularPorcentaje();
