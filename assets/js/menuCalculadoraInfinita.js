@@ -85,18 +85,12 @@ function verCalculadoraInfinita() {
     }
     console.log(message);
 
-    console.log("antes de pedir " + continuar);
-
-    continuar = prompt("GRACIAS !! \n¿Quiere realizar otra operación? \n[1. SI]\n[0. NO]");
-
-    console.log("despues de pedir " + continuar);
+    continuar = parseInt(prompt("GRACIAS !! \n¿Quiere realizar otra operación? \n[1. SI]\n[0. NO]"));
 
     if (continuar === 1) {
         verCalculadoraInfinita();
-
-        console.log("Pepe entra en el if " + continuar);
     }
-    console.log("despues del if " + continuar);
+    console.log(fin);
 }
 
 verCalculadoraInfinita();
