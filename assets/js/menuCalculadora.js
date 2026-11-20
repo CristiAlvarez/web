@@ -1,7 +1,7 @@
 "use strict";
 
 function verMenuMatematicas() {
-    let fin = "GRACIAS !!\nActualice para reiniciar la calculadora";
+    let fin = "GRACIAS !!\nActualice para reiniciar la calculadora(F5)";
     let menu = 99;
     let n1 = 0;
     let n2 = 0;
@@ -15,8 +15,10 @@ function verMenuMatematicas() {
         }
     }
 
-    n1 = parseFloat(prompt("Escribe el primer número"));
-    n2 = parseFloat(prompt("Escribe el segundo número"));
+    if (menu > 0) {
+        n1 = parseFloat(prompt("Escribe el primer número"));
+        n2 = parseFloat(prompt("Escribe el segundo número"));
+    }
 
     switch (menu) {
         case 1:
@@ -84,8 +86,6 @@ function verMenuMatematicas() {
     console.log(fin);
 }
 
-verMenuMatematicas();
-
 function sumarDosNumerosParametros(n1, n2) {
     let suma = n1 + n2;
     return suma;
@@ -136,3 +136,5 @@ function sumarGaussFormula(dias) {
     let gauss = (dias * (dias + 1)) / 2;
     return gauss;
 }
+
+// verMenuMatematicas();
