@@ -166,4 +166,18 @@ function sumarGastos() {
     console.log(total);
 }
 
-sumarGastos();
+// sumarGastos();
+
+//-----------------------------------------------
+//              AGENDA DE CONTACTOS
+//-----------------------------------------------
+
+function mostrarAgendaContactos() {
+    let agenda = ["Pinto", "Cristian", "Leo", "Senén", "Dani", "Yonolis"];
+
+    for (let i = 0; i < agenda.length; i++) {
+        console.log(i + 1 + ". " + agenda[i]);
+    }
+}
+
+// mostrarAgendaContactos();
