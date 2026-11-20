@@ -11,6 +11,7 @@ function sumarDosNumeros() {
     let suma = n1 + n2;
 
     alert("El resultado de la suma de " + n1 + " y " + n2 + " es " + suma);
+    return suma;
 }
 
 function restarDosNumeros() {
@@ -70,7 +71,7 @@ function calcularPotencia() {
     alert(message);
 }
 
-function mediaAritmeticaDeTres() {
+function calcularMediaAritmeticaDeTres() {
     let n1 = parseFloat(prompt("Introduzca el primer número"));
     let n2 = parseFloat(prompt("Introduzca el segundo número"));
     let n3 = parseFloat(prompt("Introduzca el tercer número"));
@@ -82,12 +83,12 @@ function mediaAritmeticaDeTres() {
     alert(message);
 }
 
-function mediaArtitmeticaDeCualquierNumero() {
+function calcularMediaArtitmeticaDeCualquierNumero() {
     let divisor = parseFloat(prompt("Introduzca el divisor de la media aritmética"));
 
-    let suma = 0;
-    let num = 0;
-    let resultado = 0;
+    let suma = 0,
+        num = 0,
+        resultado = 0;
 
     let message = "La media artimética de ";
     let contador = 1;
@@ -110,7 +111,7 @@ function mediaArtitmeticaDeCualquierNumero() {
     alert(message);
 }
 
-function areaRectangulo() {
+function calcularAreaRectangulo() {
     let base = parseFloat(prompt("Indique la base de su rectángulo en cm"));
     let altura = parseFloat(prompt("Indique la altura de su rectángulo en cm"));
     let area = base * altura;
@@ -121,7 +122,7 @@ function areaRectangulo() {
     alert(message);
 }
 
-function areaYLongitudCircunferencia() {
+function calcularAreaYLongitudCircunferencia() {
     let radio = parseFloat(prompt("Indique el radio conocido de la circunferencia"));
     let area = Math.PI * radio ** 2;
     let longitud = 2 * Math.PI * radio;
@@ -133,7 +134,7 @@ function areaYLongitudCircunferencia() {
     alert(message);
 }
 
-function celsiusAFharenheit() {
+function convertirCelsiusAFharenheit() {
     let celsius = parseFloat(prompt("Indique los grados celsius que quiere convertir a Fahrenheit"));
     let fahrenheit = (9 / 5) * celsius + 32;
     let message = "";
@@ -265,7 +266,7 @@ function hacerTablaDeMultiplicar() {
     }
 }
 
-// ---------------- Pares e impares ----------------
+// ---------------- Pares, impares y x5----------------
 
 function mostrarPares() {
     let n = parseInt(prompt("Hasta qué número quieres ver los pares?"));
@@ -449,10 +450,83 @@ function seleccionarCalculos() {
 }
 
 // ------------------------------------------------
-//             SUMA DE GAUSS
+//               SUMA DE GAUSS
 // ------------------------------------------------
 
-function sumarGauss() {}
+function sumarGaussFormula() {
+    let dias = parseInt(prompt("Indique el número de días del desafío"));
+    let gauss = 0,
+        message = "",
+        message2 = "",
+        suma = 0;
+
+    gauss = (dias * (dias + 1)) / 2;
+
+    message = "FORMULA: \nAl finalizar el desafío de " + dias + " días ";
+    message += " habrá realizado un total de " + gauss + " flexiones.\n";
+
+    for (let flexion = 0; flexion <= dias; flexion++) {
+        suma += flexion;
+    }
+
+    message += "\nBUCLE FOR:\nAl finalizar el desafío de " + dias + " días ";
+    message += " habrá realizado un total de " + suma + " flexiones.";
+
+    alert(message);
+}
+
+// ------------------------------------------------
+//             NÚMEROS ALEATORIOS
+// ------------------------------------------------
+
+function calcularNumeroAleatorio() {
+    //NO ESTÁ CORRECTO//
+    let n1 = parseInt(prompt("¿Qué número entre 1 y 10 estoy pensando?"));
+    let message = "",
+        otraVez = "";
+    const num = 3;
+    const limite = 10;
+
+    messageM = "El número que estoy pensando es MENOR.\n";
+    messageMa = "El número que estoy pensando es MAYOR.\n";
+    otraVez = "\nVuelve a probar!!!";
+
+    while (n1 <= 0 || n1 > limite) {
+        message = "Busca un número entre 1 y 10.";
+        calcularNumeroAleatorio();
+
+        if (n1 < num) {
+            message = "El número que estoy pensando es MENOR.\n\nVuelve a probar!!!";
+            calcularNumeroAleatorio();
+        } else if (n1 > num) {
+            message = "El número que estoy pensando es MAYOR.\n\nVuelve a probar!!!";
+            calcularNumeroAleatorio();
+        } else {
+            message = "¡ENHORABUENA! Has acertado\nVuelve a jugar (F5)!!!";
+        }
+        alert(message);
+    }
+}
+
+function adivinarNumero() {
+    const LIMITE = 10;
+    const Mi_Numero = 5;
+    let tuNumero = 0,
+        message = "";
+
+    while (Mi_Numero !== tuNumero) {
+        tuNumero = parseInt(prompt("Adivina qué número estoy pensando"));
+
+        if (Mi_Numero > tuNumero) {
+            message = "Mi número es mayor que " + tuNumero;
+        } else if (Mi_Numero < tuNumero) {
+            message = "Mi número es menor que " + tuNumero;
+        } else {
+            message = "Enhorabuena!!! Has dicho " + tuNumero + " y yo había pensado " + Mi_Numero;
+        }
+        alert(message);
+    }
+}
 
 // ------------------------------------------------
 //             EJERCICIOS EXTRAS
@@ -477,6 +551,153 @@ function identificarMayor() {
     }
 }
 
+function averiguarSiParOImpar() {
+    let num = parseInt(prompt("Indica un número para saber si es par o impar"));
+    let resultado = 0,
+        message = "";
+
+    resultado = num % 2;
+    message = "El número " + num;
+
+    if (resultado % 2 === 0) {
+        alert(message + " es un número PAR");
+    } else {
+        alert(message + " es un número es IMPAR");
+    }
+}
+
+function calcularPerimetroCuadrado() {
+    let longitud = parseFloat(prompt("Indique la longitud del cuadrado"));
+    let perimetro = 0,
+        message = "";
+
+    perimetro = 4 * longitud;
+    message = " El perímetro resultante de un cuadrado con longitud de lado " + longitud;
+    message += " es de " + perimetro + " cm.";
+
+    alert(message);
+}
+
+function calcularAreaTriangulo() {
+    let base = parseFloat(prompt("Indique la base del triangulo"));
+    let altura = parseFloat(prompt("Indique la altura del triangulo"));
+    let area = 0,
+        message = "";
+
+    area = (base * altura) / 2;
+    message = " El area resultante de un un triangulo con base de lado " + base;
+    message += " y altura de " + altura;
+    message += " es de " + area + " cm2.";
+
+    alert(message);
+}
+
+function calcularVolumenCubo() {
+    let arista = parseFloat(prompt("Indique la longitud de la arista del cubo"));
+
+    let volumen = 0,
+        message = 0;
+
+    volumen = arista ** 3;
+    message = "El volumen del cubo con arista de " + arista + " cm";
+    message += " su volumen total es de " + volumen + " cm3.";
+
+    alert(message);
+}
+
+// ------------------------------------------------
+//                 PARAMETROS
+// ------------------------------------------------
+function saludar() {
+    alert("¡Hola, mundo!");
+}
+
+function saludarConParametro(nombre) {
+    alert("Hola " + nombre);
+}
+
+// ------------------------------------------------
+//              RETURN + PARÁMETROS
+// ------------------------------------------------
+// Crear una función que pida dos números
+
+function probarFunciones() {
+    let n1 = parseFloat(prompt("Escribe el primer número"));
+    let n2 = parseFloat(prompt("Escribe el segundo número"));
+
+    let suma = sumarDosNumerosParametros(n1, n2);
+    let diferencia = restarDosNumerosParametros(n1, n2);
+    let producto = multiplicarDosNumerosParametros(n1, n2);
+
+    console.log("La suma de " + n1 + " + " + n2 + " es: " + suma);
+    console.log("La diferencia de " + n1 + " - " + n2 + " es: " + diferencia);
+    console.log("El producto de " + n1 + " por " + n2 + " es: " + producto);
+
+    while (n2 === 0) {
+        alert("EL DIVISOR NO PUEDE SER 0 !!! ");
+        n2 = parseFloat(prompt("Escribe un divisor diferente de 0"));
+    }
+    let resto = dividirDosNumerosParametros(n1, n2);
+
+    console.log("El resultado de dividir " + n1 + " entre " + n2 + " es: " + resto);
+}
+
+function probarFunciones2() {
+    let menu = parseInt(prompt("Seleccione una opción:\n" + "1. Sumar \n" + "2. Restar \n" + "3. Multiplicar \n" + "4. Dividir \n" + "5. Salir"));
+    let n1 = parseFloat(prompt("Escribe el primer número"));
+    let n2 = parseFloat(prompt("Escribe el segundo número"));
+    let fin = "Actualice para empezar de nuevo";
+    let salir = "Ha seleccionado SALIR";
+    let error = "OPCIÓN NO VÁLIDA!!!";
+
+    switch (menu) {
+        case 1:
+            let suma = sumarDosNumerosParametros(n1, n2);
+            console.log("La suma de " + n1 + " + " + n2 + " es: " + suma);
+            break;
+        case 2:
+            let diferencia = restarDosNumerosParametros(n1, n2);
+            console.log("La diferencia de " + n1 + " - " + n2 + " es: " + diferencia);
+            break;
+        case 3:
+            let producto = multiplicarDosNumerosParametros(n1, n2);
+            console.log("El producto de " + n1 + " por " + n2 + " es: " + producto);
+            break;
+        case 4:
+            while (n2 === 0) {
+                alert("EL DIVISOR NO PUEDE SER 0 !!! ");
+                n2 = parseFloat(prompt("Escribe un divisor diferente de 0"));
+            }
+            let resto = dividirDosNumerosParametros(n1, n2);
+            console.log("El resultado de dividir " + n1 + " entre " + n2 + " es: " + resto);
+            break;
+        case 5:
+            console.log(salir);
+            break;
+        default:
+            console.log(error);
+    }
+    console.log(fin);
+}
+function sumarDosNumerosParametros(n1, n2) {
+    let suma = n1 + n2;
+    return suma;
+}
+function restarDosNumerosParametros(n1, n2) {
+    let diferencia = n1 - n2;
+    return diferencia;
+}
+function multiplicarDosNumerosParametros(n1, n2) {
+    let producto = n1 * n2;
+    return producto;
+}
+function dividirDosNumerosParametros(n1, n2) {
+    let resto = n1 / n2;
+    return resto;
+}
+// probarFunciones();
+// probarFunciones2();
+
 //------------------------------------------
 // Llamar a las funciones (SIEMPRE)
 // -----------------------------------------
@@ -487,26 +708,56 @@ function identificarMayor() {
 // dividirDosNumeros();
 // cuadradoYCubo();
 // calcularPotencia();
-// mediaAritmeticaDeTres();
-// mediaArtitmeticaDeCualquierNumero();
-// areaRectangulo();
-// areaYLongitudCircunferencia();
-// celsiusAFharenheit();
+// calcularMediaAritmeticaDeTres();
+// calcularMediaArtitmeticaDeCualquierNumero();
+// calcularAreaRectangulo();
+// calcularAreaYLongitudCircunferencia();
+// convertirCelsiusAFharenheit();
 // calcularPorcentaje();
+
+// ========LLAMADA DE FUNCIONES========
 // seleccionaUnaOperacion();
 
+// ========FOR, WHILE Y DO WHILE========
 // tirarPetardos();
 // tirarPetardos2();
 // tirarPetardos3();
 // tirarPetardos4();
+
+// ========TABLA DE MULTIPLICAR========
 // hacerTablaDeMultiplicar();
+
+// ========PARES, IMPARES Y x5========
 // mostrarPares();
 // mostrarImpares();
 // mostrarNumerosDeCincoEnCinco();
+
+// ========IF, ELSE Y ELSE IF========
 // verAprobadoBart();
 // entrarEnElColegio();
 // clasificarNotasBart();
+
+// ========SWITCH========
 // clasificarNotasSwitch();
 // elegirCastigo();
+
+// =======CALCULADORA MEJORADA=======
 // seleccionarCalculos();
+
+// =======SUMA DE GAUSS=======
+// sumarGaussFormula();
+
+// =======NÚMEROS ALEATORIOS=======
+// calcularNumeroAleatorio();
+// adivinarNumero();
+
+// ========EJERCICIOS EXTRAS========
 // identificarMayor();
+// averiguarSiParOImpar();
+// calcularPerimetroCuadrado();
+// calcularAreaTriangulo();
+// calcularVolumenCubo();
+
+// ========EJERCICIOS EXTRAS========
+// saludar();
+// saludarConParametro("Cristi");
