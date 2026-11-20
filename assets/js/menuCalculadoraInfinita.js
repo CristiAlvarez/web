@@ -93,7 +93,7 @@ function verCalculadoraInfinita() {
     console.log(fin);
 }
 
-verCalculadoraInfinita();
+// verCalculadoraInfinita();
 
 function sumarDosNumerosParametros(n1, n2) {
     let suma = n1 + n2;
