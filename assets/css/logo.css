@@ -1,11 +1,12 @@
 /* Marca de agua */
 .agua {
-    &::after {
+    &::before {
         position: fixed;
         content: "";
         height: var(--ca-logo-height);
         /* calc (height * ratio logo) */
         width: calc(var(--ca-logo-height) * var(--ca-logo-ratio));
+
         bottom: 1rem;
         right: 0.5rem;
 
