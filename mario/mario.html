@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <!-- Juego de caracteres de casi todos los idiomas humanos (incluidos ñ, tildes ...) -->
+        <meta charset="utf-8" />
+        <!-- Escala inicial y renderizado _responsive_ por el ancho del dispositivo -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Compatibilidad con Microsoft Explorer -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- Indéxame NO y sígueme NO -->
+        <meta name="robots" content="noIndex, noFollow" />
+        <!-- Breve descripción del sitio que se verá en los resultados de búsqueda -->
+        <meta name="description" content="Sitio web de prueba elaborado en el curso de Confección y Publicación de Páginas Web (IFCD0110). Unidad Formativa UF1304, Elaboración de Plantillas y formularios" />
+
+        <!-- Utilícese una hoja de estilos Normalize -->
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
+        <!-- Ruta a las hojas de visibilidad -->
+        <link rel="stylesheet" href="../assets/css/visibilidad.css" />
+        <!-- Ruta a las variables -->
+        <link rel="stylesheet" href="../assets/css/variables.css" />
+        <!-- Ruta a Hover.css -->
+        <link rel="stylesheet" href="../assets/css/hover.css" />
+        <!-- Ruta a la galería y al carrousel -->
+        <link rel="stylesheet" href="../assets/css/imagenes.css" />
+        <link rel="stylesheet" href="../assets/css/carrousel.css" />
+        <!-- Ruta a Media Queris -->
+        <link rel="stylesheet" href="../assets/css/mediaqueris.css" />
+        <!-- Ruta a Logo web-->
+        <link rel="stylesheet" href="../assets/css/logo.css" />
+        <!-- Ruta a transformers -->
+        <link rel="stylesheet" href="../assets/css/transformers.css" />
+        <!-- Ruta a edición menú principal -->
+        <link rel="stylesheet" href="../assets/css/menu.css" />
+
+        <!-- Ruta a las tipografías -->
+        <link rel="stylesheet" href="../assets/css/tipografia.css" />
+        <!-- Ruta a las hojas de estilos -->
+        <link rel="stylesheet" href="../assets/css/estilos.css" />
+
+        <link rel="stylesheet" href="../assets/css/mario.css" />
+        <link rel="stylesheet" href="../assets/css/footer.css" />
+
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+        <script src="../assets/js/mario.js" defer></script>
+
+        <!-- Título de la pestaña del navegador -->
+        <title>Super Mario | Juegos</title>
+    </head>
+    <body class="jsMario">
+        <header id="header"></header>
+        <nav id="menu" class="principal" aria-label="Navegación Principal"></nav>
+        <main class="agua">
+            <section class="marioClass">
+                <header class="img-before portada">
+                    <h2>Aprende JavaScript con Mario</h2>
+                </header>
+                <article class="game">
+                    <h3>Escenario de Mario</h3>
+                    <div id="escenario" class="escenario">
+                        <figure class="mario" id="mario">
+                            <img src="../assets/img/superMario/superMario.webp" alt="Mario Bros" draggable="false" />
+                            <figcaption>Mario</figcaption>
+                        </figure>
+                    </div>
+                </article>
+                <article id="galeria-mario">
+                    <h3>Galería de Mario</h3>
+                    <output id="info" class="info">¡Listo! Mario está esperando órdenes.</output>
+                    <ul class="galeria">
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <figure class="img-before">
+                                <figcaption></figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </article>
+                <article id="paleta-colores">
+                    <h3>Paleta de colores</h3>
+                    <ul class="paleta">
+                        <li>crimson</li>
+                        <li>tomato</li>
+                        <li>darkorange</li>
+                        <li>gold</li>
+                        <li>yellowgreen</li>
+                        <li>seagreen</li>
+                        <li>teal</li>
+                        <li>deepskyblue</li>
+                        <li>royalblue</li>
+                        <li>mediumpurple</li>
+                        <li>orchid</li>
+                        <li>hotpink</li>
+                    </ul>
+                </article>
+            </section>
+        </main>
+
+        <footer id="footer"></footer>
+    </body>
+
+    <script>
+        $(function () {
+            $("#header").load("../layouts/header.html");
+            $("#menu").load("../layouts/nav.html");
+            $("#footer").load("../layouts/footer.html");
+        });
+    </script>
+</html>
