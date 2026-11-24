@@ -33,13 +33,6 @@ let bgGaleriaMario = ["LightCoral", "PeachPuff", "LightYellow", "PaleGreen", "Pa
 let figuras = document.querySelectorAll("#galeria-mario figure");
 let captions = document.querySelectorAll("#galeria-mario figcaption");
 
-figuras.forEach(function (figura, indice) {
-    figura.style.backgroundColor = bgGaleriaMario[indice];
-});
-captions.forEach(function (caption, indice) {
-    caption.textContent = personajesGaleriaMario[indice];
-});
-
 //-----------------------------------------------
 //                Ejercicio 2a
 //-----------------------------------------------
@@ -77,4 +70,43 @@ itemsPaletaColores.forEach(function (li) {
 });
 figuras.forEach(function (figura) {
     figura.onclick = pintarFigura;
+});
+
+//-----------------------------------------------
+//                Ejercicio 2b
+//-----------------------------------------------
+
+// Crear otro item a la lista galería del article galeria-mario
+// tendrá también un figure y un figcaption
+
+// crear una variable y utilizar createElement
+
+// Guardamos el elemento ul.galeria en una variable 'listaGaleria'
+
+let itemGaleria = document.createElement("li");
+let figureGaleria = document.createElement("figure");
+let captionGaleria = document.createElement("figcaption");
+
+ulGaleriaMario.appendChild(itemGaleria);
+itemGaleria.appendChild(figureGaleria);
+figureGaleria.appendChild(captionGaleria);
+
+figureGaleria.classList.add("img-before");
+
+personajesGaleriaMario.push("WaLuigui");
+bgGaleriaMario.push("BlueViolet");
+
+captionGaleria.textContent = personajesGaleriaMario[personajesGaleriaMario.length - 1];
+
+// "WaLuigi", "Toad", "Planta carnívora", "Donkey Kong", "Kameka", "Daisy"
+// "BlueViolet", "LightSeaGreen", "DarkBlue", "Silver", "Orange", "MediumSlateBlued");
+
+captions = document.querySelectorAll("#galeria-mario figcaption");
+captions.forEach(function (caption, indice) {
+    caption.textContent = personajesGaleriaMario[indice];
+});
+
+figuras = document.querySelectorAll("#galeria-mario figure");
+figuras.forEach(function (figura, indice) {
+    figura.style.backgroundColor = bgGaleriaMario[indice];
 });

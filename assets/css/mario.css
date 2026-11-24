@@ -12,6 +12,12 @@
     --galeria-mario-8: url("../img/superMario/lakitu.webp");
     --galeria-mario-9: url("../img/superMario/peach.webp");
     --galeria-mario-10: url("../img/superMario/setaAzul.webp");
+    --galeria-mario-11: url("../img/superMario/waluigi.webp");
+    --galeria-mario-12: url("../img/superMario/toad.webp");
+    --galeria-mario-13: url("../img/superMario/planta.webp");
+    --galeria-mario-14: url("../img/superMario/donkeyKong.webp");
+    --galeria-mario-15: url("../img/superMario/kameka.webp");
+    --galeria-mario-16: url("../img/superMario/daisy.webp");
 }
 
 body.jsMario {
@@ -136,6 +142,24 @@ body.jsMario {
                 }
                 li:nth-child(10) figure::before {
                     background-image: var(--galeria-mario-10);
+                }
+                li:nth-child(11) figure::before {
+                    background-image: var(--galeria-mario-11);
+                }
+                li:nth-child(12) figure::before {
+                    background-image: var(--galeria-mario-12);
+                }
+                li:nth-child(13) figure::before {
+                    background-image: var(--galeria-mario-13);
+                }
+                li:nth-child(14) figure::before {
+                    background-image: var(--galeria-mario-14);
+                }
+                li:nth-child(15) figure::before {
+                    background-image: var(--galeria-mario-15);
+                }
+                li:nth-child(16) figure::before {
+                    background-image: var(--galeria-mario-16);
                 }
             }
         }
