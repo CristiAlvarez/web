@@ -28,7 +28,7 @@ ulGaleriaMario.classList.add("personajes");
 
 let personajesGaleriaMario = ["Mario", "Luigi", "Yoshi", "Bowser", "Wario", "King Boo", "Estrella", "Lakitu", "Peach", "Seta Azul"];
 
-let bgGaleriaMario = ["#FFB3BA", "#FFDEB8", "#FFFFB8", "#B8FFBB", "#B8E0FF", "#00bfff", "#ff6bb5", "#ffd900", "#32cd32", "#ff4400"];
+let bgGaleriaMario = ["LightCoral", "PeachPuff", "LightYellow", "PaleGreen", "PaleTurquoise", "DeepSkyBlue", "DeepPink", "Gold", "LimeGreen", "OrangeRed"];
 
 let figuras = document.querySelectorAll("#galeria-mario figure");
 let captions = document.querySelectorAll("#galeria-mario figcaption");
@@ -38,4 +38,43 @@ figuras.forEach(function (figura, indice) {
 });
 captions.forEach(function (caption, indice) {
     caption.textContent = personajesGaleriaMario[indice];
+});
+
+//-----------------------------------------------
+//                Ejercicio 2a
+//-----------------------------------------------
+
+// 1.- elemento html output#info
+const info = document.querySelector("#info");
+
+// 2.- Aquí se guardan todos los lis de la paleta con el texto con el nombre del color
+const itemsPaletaColores = document.querySelectorAll("#paleta-colores li");
+
+// 3.- aún no hay ningún color elegido
+let colorSeleccionado = null;
+
+// 4.- Pintar cada casilla de la paleta con el color que indica su texto
+itemsPaletaColores.forEach(function (li) {
+    li.style.backgroundColor = li.textContent;
+});
+
+function seleccionarColor() {
+    colorSeleccionado = this.textContent;
+    info.textContent = `Color seleccionado: ${colorSeleccionado}`;
+}
+
+function pintarFigura() {
+    if (colorSeleccionado === null) {
+        info.textContent = "Primero escoge un color de la paleta.";
+        return;
+    }
+    this.style.backgroundColor = colorSeleccionado;
+    info.textContent = `${this.textContent} ahora es ${colorSeleccionado}`;
+}
+
+itemsPaletaColores.forEach(function (li) {
+    li.onclick = seleccionarColor;
+});
+figuras.forEach(function (figura) {
+    figura.onclick = pintarFigura;
 });
