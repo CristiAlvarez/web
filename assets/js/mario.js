@@ -37,16 +37,12 @@ let captions = document.querySelectorAll("#galeria-mario figcaption");
 //                Ejercicio 2a
 //-----------------------------------------------
 
-// 1.- elemento html output#info
 const info = document.querySelector("#info");
 
-// 2.- Aquí se guardan todos los lis de la paleta con el texto con el nombre del color
 const itemsPaletaColores = document.querySelectorAll("#paleta-colores li");
 
-// 3.- aún no hay ningún color elegido
 let colorSeleccionado = null;
 
-// 4.- Pintar cada casilla de la paleta con el color que indica su texto
 itemsPaletaColores.forEach(function (li) {
     li.style.backgroundColor = li.textContent;
 });
