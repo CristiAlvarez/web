@@ -72,9 +72,7 @@ const lakituGaleria = document.querySelector("#lakitu-galeria");
 let botonesControles = document.querySelectorAll("#personajes-css ul.lista-controles li button");
 let galeriaPersonaje = document.querySelectorAll("#personajes-css ul.lista-personajes li figure");
 let classPersonaje = ["seleccionado", "estrella", "girando", "enemigo", "gigante", "transparente", "pixelado", "espejo"];
-console.log(botonesControles);
-console.log(galeriaPersonaje);
-console.log(classPersonaje);
+
 //---------------------------------------------------------------------
 //              Función general y su comentario
 //---------------------------------------------------------------------
@@ -95,9 +93,9 @@ function seleccionarPersonaje(personaje, clase, slogan, output = outputSalida) {
     personaje.classList.toggle(clase);
 
     if (personaje.classList.contains(clase)) {
-        message = `${nombre} ${slogan}`;
+        message = `A ${nombre} ${slogan}`;
     } else {
-        message = `${nombre} ya no ${slogan}`;
+        message = `A ${nombre} ya no ${slogan}`;
     }
     output.textContent = message;
 }
@@ -105,6 +103,7 @@ function seleccionarPersonaje(personaje, clase, slogan, output = outputSalida) {
 //-----------------------------------------------------------------------
 //                                   Eventos
 //-----------------------------------------------------------------------
+
 // botonMario.addEventListener("click", () => seleccionarPersonaje(marioGaleria, "seleccionado", "está seleccionado."));
 // botonLuigi.addEventListener("click", () => seleccionarPersonaje(luigiGaleria, "estrella", "tiene una estrella !!!!"));
 // botonYoshi.addEventListener("click", () => seleccionarPersonaje(yoshiGaleria, "girando", "está girando...."));
@@ -121,7 +120,7 @@ galeriaPersonaje.forEach(function (personaje, indice) {
         ()=> seleccionarPersonaje(
             personaje,
             classPersonaje[indice],
-            "se ha agregado la clase " + classPersonaje[indice]      
+            " se le agrega la clase " + classPersonaje[indice]      
          )
 
     );

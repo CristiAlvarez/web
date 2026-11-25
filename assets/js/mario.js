@@ -26,7 +26,7 @@ ulGaleriaMario.classList.add("personajes");
 //                Ejercicio 1c
 //-----------------------------------------------
 
-let personajesGaleriaMario = ["Mario", "Luigi", "Yoshi", "Bowser", "Wario", "King Boo", "Estrella", "Lakitu", "Peach", "Seta Azul"];
+let personajesGaleriaMario = ["Mario", "Luigi", "Yoshi", "Bowser", "Wario", "King Boo", "Estrella", "Lakitu", "Peach", "Toad Azul"];
 
 let bgGaleriaMario = ["LightCoral", "PeachPuff", "LightYellow", "PaleGreen", "PaleTurquoise", "DeepSkyBlue", "DeepPink", "Gold", "LimeGreen", "OrangeRed"];
 
