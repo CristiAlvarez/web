@@ -79,19 +79,26 @@ const lakituGaleria = document.querySelector("#lakitu-galeria");
 
 function seleccionarPersonaje(personaje, clase, slogan, output = outputSalida) {
     const nombre = personaje.textContent;
-    personaje.classList.add(clase);
+    let message = "";
+    // personaje.classList.add(clase);
+    personaje.classList.toggle(clase);
 
-    output.textContent = `${nombre} ${slogan}`;
+    if (personaje.classList.contains(clase)) {
+        message = `${nombre} ${slogan}`;
+    } else {
+        message = `${nombre} ya no ${slogan}`;
+    }
+    output.textContent = message;
 }
 
 //-----------------------------------------------------------------------
 //                                   Eventos
 //-----------------------------------------------------------------------
-botonMario.addEventListener("click", () => seleccionarPersonaje(marioGaleria, "seleccionado", "ha sido seleccionado"));
+botonMario.addEventListener("click", () => seleccionarPersonaje(marioGaleria, "seleccionado", "está seleccionado."));
 botonLuigi.addEventListener("click", () => seleccionarPersonaje(luigiGaleria, "estrella", "tiene una estrella !!!!"));
 botonYoshi.addEventListener("click", () => seleccionarPersonaje(yoshiGaleria, "girando", "está girando...."));
 botonBowser.addEventListener("click", () => seleccionarPersonaje(bowserGaleria, "enemigo", "es tu enemigo !!!!"));
-botonWario.addEventListener("click", () => seleccionarPersonaje(warioGaleria, "gigante", "ahora es gigante"));
-botonKingBoo.addEventListener("click", () => seleccionarPersonaje(kingBooGaleria, "transparente", "ya no se ve...."));
+botonWario.addEventListener("click", () => seleccionarPersonaje(warioGaleria, "gigante", " es gigante"));
+botonKingBoo.addEventListener("click", () => seleccionarPersonaje(kingBooGaleria, "transparente", "es transparente...."));
 botonSetaAzul.addEventListener("click", () => seleccionarPersonaje(setaAzulGaleria, "pixelado", "es menor de edad!"));
 botonLakitu.addEventListener("click", () => seleccionarPersonaje(lakituGaleria, "espejo", "está al revés...."));
