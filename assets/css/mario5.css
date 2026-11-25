@@ -11,7 +11,7 @@
     --galeria-mario-4: url("../img/superMario/bowser.webp");
     --galeria-mario-5: url("../img/superMario/wario.webp");
     --galeria-mario-6: url("../img/superMario/kingBoo.webp");
-    --galeria-mario-7: url("../img/superMario/setaAzul.webp");
+    --galeria-mario-7: url("../img/superMario/toadAzul.webp");
     --galeria-mario-8: url("../img/superMario/lakitu.webp");
     --galeria-mario-9: url("../img/superMario/peach.webp");
     --galeria-mario-10: url("../img/superMario/estrella.webp");
@@ -158,10 +158,10 @@
     border: 4px solid white;
     border-radius: 1rem;
 
-    background: linear-gradient(to bottom, #87ceeb, #bfe9ff);
+    background: linear-gradient(to bottom, #fff, #8f0b9e4a);
 
     box-shadow:
-        0 0 0 4px #4a90e2,
+        0 0 0 4px #680b9eab,
         0 8px 20px rgb(0 0 0 / 20%);
 
     h4 {
@@ -320,7 +320,7 @@
 }
 
 .pixelado {
-    image-rendering: pixelated;
+    filter: blur(5px);
 }
 
 .brillante {
