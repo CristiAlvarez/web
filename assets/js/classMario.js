@@ -5,8 +5,9 @@
 // ===================================
 
 class Mario {
-    constructor(nombre = "Mario") {
+    constructor(nombre = "Mario", sprite = "superMario.webp") {
         this.nombre = nombre;
+        this.sprite = sprite;
         this.x = 20;
         this.scale = 1;
         this.rotation = 0;
@@ -20,11 +21,11 @@ class Mario {
 
         this.elemento.innerHTML = `
             <img
-                src="../assets/img/superMario/superMario.webp"
+                src="${ruta}${this.sprite}"
                 alt="${this.nombre}"
                 draggable="false"
             >
-            <figcaption>${this.nombre}</figcaption>
+            <figcaption></figcaption>
         `;
 
         // Insertar Mario en el escenario
@@ -182,9 +183,11 @@ class Mario {
 // ARRAYS RUTAS Y PERSONAJES
 // ===================================
 
-const ruta = "../img/superMario/";
+const ruta = "../assets/img/superMario/";
+
 const sprites = ["superMario.webp", "luigi.webp", "yoshi.webp", "wario.webp", "kingBoo.webp", "toadAzul.webp", "lakitu.webp", "peach.webp", "estrella.webp", "waluigi.webp", "toad.webp", "planta.webp", "donkeyKong.webp", "kameka.webp", "daisy.webp"];
-const nombre = ["Mario", "Luigi", "Yoshi", "Wario", "King Boo", "Toad azul", "Lakitu", "Peach", "Estrella dorada", "Waluigi", "Toad", "Planta", "Donkey Kong", "Kameka", "Daisy"];
+
+const nombres = ["Mario", "Luigi", "Yoshi", "Wario", "King Boo", "Toad azul", "Lakitu", "Peach", "Estrella dorada", "Waluigi", "Toad", "Planta", "Donkey Kong", "Kameka", "Daisy"];
 
 // prettier-ignore
 
@@ -206,15 +209,26 @@ let contadorMario = 0;
 // ===================================
 
 function crearMario() {
-    contadorMario++;
+    // Obtener índice del siguiente personaje
+    const indice = contadorMario % nombres.length;
 
-    //Nuevo objeto de la clase Mario
-    const nuevoMario = new Mario(`Mario ${contadorMario}`);
+    // Obtener nombre e imagen
+    const nombre = nombres[indice];
+    const imagen = sprites[indice];
 
+    // Crea una instancia
+    const nuevoMario = new Mario(nombre, imagen);
+
+    // Registrar el objeto
     marios.push(nuevoMario);
 
+    // Convertirlo en un personaje activo
     marioActivo = nuevoMario;
 
+    // Incrementa el contador
+    contadorMario++;
+
+    // Muestra el mensaje
     nuevoMario.mostrarMensaje(`${nuevoMario.nombre} ha sido creado.`);
 
     return nuevoMario;
