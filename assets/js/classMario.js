@@ -184,7 +184,7 @@ class Mario {
 // ===================================
 
 // Array que almacena todos los objetos Mario
-const marios = [];
+let marios = [];
 
 // Personaje que recibirá las órdenes
 let marioActivo = null;
@@ -199,6 +199,7 @@ let contadorMario = 0;
 function crearMario() {
     contadorMario++;
 
+    //Nuevo objeto de la clase Mario
     const nuevoMario = new Mario(`Mario ${contadorMario}`);
 
     marios.push(nuevoMario);
@@ -214,26 +215,33 @@ function crearMario() {
 // 4. EVENTO: CREAR MARIO
 // ===================================
 
-document.querySelector("#btnCrearMario").addEventListener("click", crearMario);
+// document.querySelector("#btnCrearMario").addEventListener("click", crearMario);
+
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "Enter") {
+        crearMario();
+    }
+});
 
 // ===================================
 // 5. EVENTOS DE MOVIMIENTO
 // ===================================
 
-document.querySelector("#btnAvanzar").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "ArrowRight") {
         marioActivo.avanzar(800);
     }
 });
 
-document.querySelector("#btnRetroceder").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "ArrowLeft") {
         marioActivo.retroceder(800);
     }
 });
 
-document.querySelector("#btnSaltar").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "Space") {
+        evento.preventDefault();
         marioActivo.saltar();
     }
 });
@@ -242,32 +250,33 @@ document.querySelector("#btnSaltar").addEventListener("click", () => {
 // 6. EVENTOS DE TRANSFORMACIÓN
 // ===================================
 
-document.querySelector("#btnAumentar").addEventListener("click", () => {
-    if (marioActivo) {
+// Función flecha, solo funciona al click si lo dejas ()=>. Si se mete parámetro se activa al reiniciar la página.
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "KeyA") {
         marioActivo.aumentar();
     }
 });
 
-document.querySelector("#btnEncoger").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "KeyE") {
         marioActivo.encoger();
     }
 });
 
-document.querySelector("#btnRotar").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "KeyR") {
         marioActivo.rotar(90);
     }
 });
 
-document.querySelector("#btnDuplicar").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "KeyD") {
         marioActivo.duplicar();
     }
 });
 
-document.querySelector("#btnReset").addEventListener("click", () => {
-    if (marioActivo) {
+document.addEventListener("keydown", (evento) => {
+    if (evento.code === "Backspace") {
         marioActivo.reiniciar();
     }
 });
