@@ -1,6 +1,6 @@
 "use strict";
 
-// ===================================O
+// ===================================
 // 1. CLASE MARIO
 // ===================================
 
@@ -178,6 +178,15 @@ class Mario {
         document.querySelector("#info").textContent = texto;
     }
 }
+// ===================================
+// ARRAYS RUTAS Y PERSONAJES
+// ===================================
+
+const ruta = "../img/superMario/";
+const sprites = ["superMario.webp", "luigi.webp", "yoshi.webp", "wario.webp", "kingBoo.webp", "toadAzul.webp", "lakitu.webp", "peach.webp", "estrella.webp", "waluigi.webp", "toad.webp", "planta.webp", "donkeyKong.webp", "kameka.webp", "daisy.webp"];
+const nombre = ["Mario", "Luigi", "Yoshi", "Wario", "King Boo", "Toad azul", "Lakitu", "Peach", "Estrella dorada", "Waluigi", "Toad", "Planta", "Donkey Kong", "Kameka", "Daisy"];
+
+// prettier-ignore
 
 // ===================================
 // 2. VARIABLES DE CONTROL
