@@ -27,7 +27,7 @@ function crearAcciones(juego) {
     // Con la partida terminada no se obedece ninguna orden
     for (const [nombre, funcion] of Object.entries(acciones)) {
         acciones[nombre] = () => {
-            if (!juego.terminado) funcion();
+            if (!juego.pausado) funcion();
         };
     }
 

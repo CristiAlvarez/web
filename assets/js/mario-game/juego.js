@@ -4,6 +4,7 @@ import { Moneda } from "./moneda.js";
 import { Suelo } from "./precipicio.js";
 import { PantallaGameOver } from "./gameover.js";
 import { PanelVidas } from "./vidas.js";
+import { PantallaSeleccion } from "./seleccion.js";
 
 // ===================================
 // CLASE JUEGO
@@ -31,6 +32,9 @@ export class Juego {
         this.escenario.addEventListener("sinvidas", (evento) => this.gameOver(evento.detail));
 
         this.panelVidas = new PanelVidas(escenario);
+        this.eligiendo = true; // true mientras se ve la pantalla de selección
+
+        this.pantallaSeleccion = new PantallaSeleccion(escenario, (indice) => this.elegirPersonaje(indice));
 
         // Solo se redibuja si las vidas que cambian son las del personaje activo
         this.escenario.addEventListener("cambiovidas", (evento) => {
@@ -38,11 +42,19 @@ export class Juego {
         });
     }
 
+    /**
+     * ¿Hay que ignorar teclas y botones? (game over o eligiendo personaje)
+     */
+    get pausado() {
+        return this.terminado || this.eligiendo;
+    }
+
     // ===================================
     // ARRANQUE
     // ===================================
 
     iniciar() {
+        this.pantallaSeleccion.mostrar();
         this.generarMonedas();
         this.bucle();
         this.suelo.generar();
@@ -52,20 +64,26 @@ export class Juego {
     // PERSONAJES
     // ===================================
 
-    crearMario() {
-        // Siguiente personaje de la lista (vuelve al principio al acabar)
-        const indice = this.contadorMario % CONFIG.NOMBRES.length;
+    crearMario(indice = this.contadorMario % CONFIG.NOMBRES.length) {
         const nombre = CONFIG.NOMBRES[indice];
         const sprite = CONFIG.SPRITES[indice];
 
         const nuevoMario = new Mario(nombre, sprite, this.escenario);
 
         this.registrar(nuevoMario);
-        this.contadorMario++;
+        this.contadorMario = indice + 1; // el siguiente continúa después del elegido
 
         nuevoMario.mostrarMensaje(`${nombre} ha sido creado.`);
 
         return nuevoMario;
+    }
+
+    /**
+     * El jugador ha elegido personaje en la pantalla de selección
+     */
+    elegirPersonaje(indice) {
+        this.eligiendo = false;
+        this.crearMario(indice);
     }
 
     /**
@@ -151,7 +169,7 @@ export class Juego {
         this.monedas = [];
         this.totalMonedas = 0;
         this.marcador.textContent = 0;
-        document.querySelector("#info").textContent = "¡Pulsa Crear nuevo Mario para comenzar!";
+        document.querySelector("#info").textContent = "¡Elige un personaje para comenzar!";
 
         // Nuevo mapa
         this.suelo.generar();
@@ -159,6 +177,8 @@ export class Juego {
 
         this.terminado = false;
         this.bucle();
+        this.eligiendo = true;
+        this.pantallaSeleccion.mostrar();
     }
 
     // ===================================
