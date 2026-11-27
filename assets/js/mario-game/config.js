@@ -31,6 +31,8 @@ export const CONFIG = {
 
     // Monedas que aparecen en cada tanda
     CANTIDAD_MONEDAS: 8,
+    // De las monedas de cada tanda, cuántas son malditas (quitan una vida)
+    CANTIDAD_MALDITAS: 3,
 
     // Duración (ms) de la transición al avanzar o retroceder
     VELOCIDAD: 800,

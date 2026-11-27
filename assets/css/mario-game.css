@@ -181,7 +181,9 @@ body.jsMario {
                             font-weight: 700;
                             color: #fff;
                             text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
-
+                            .cantidad {
+                                color: #fff;
+                            }
                             .icono-moneda {
                                 flex: none;
                                 box-sizing: border-box;

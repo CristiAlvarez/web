@@ -5,6 +5,7 @@ import { Suelo } from "./precipicio.js";
 import { PantallaGameOver } from "./gameover.js";
 import { PanelVidas } from "./vidas.js";
 import { PantallaSeleccion } from "./seleccion.js";
+import { MonedaMaldita } from "./monedasmalditas.js";
 
 // ===================================
 // CLASE JUEGO
@@ -118,13 +119,22 @@ export class Juego {
     // MONEDAS
     // ===================================
 
-    generarMonedas(cantidad = CONFIG.CANTIDAD_MONEDAS) {
+    generarMonedas(cantidad = CONFIG.CANTIDAD_MONEDAS, malditas = CONFIG.CANTIDAD_MALDITAS) {
         for (let i = 0; i < cantidad; i++) {
-            this.monedas.push(new Moneda(this.escenario));
+            // Las últimas de la tanda son malditas (la posición es aleatoria, así que no importa el orden)
+            const esMaldita = i >= cantidad - malditas;
+
+            this.monedas.push(esMaldita ? new MonedaMaldita(this.escenario) : new Moneda(this.escenario));
         }
     }
 
     recogerMoneda(mario, moneda) {
+        // La moneda maldita no suma: quita una vida
+        if (moneda.esMaldita) {
+            this.recogerMonedaMaldita(mario, moneda);
+            return;
+        }
+
         mario.cogerMoneda(moneda);
 
         this.monedas = this.monedas.filter((m) => m !== moneda);
@@ -134,13 +144,30 @@ export class Juego {
 
         let mensaje = `${mario.nombre} coge una moneda (lleva ${mario.monedas}).`;
 
-        // Si era la última, programamos una tanda nueva
-        if (this.monedas.length === 0) {
+        // Si ya no quedan monedas normales, se retiran las malditas que sobren
+        // y se programa una tanda nueva
+        if (this.monedas.every((m) => m.esMaldita)) {
+            this.monedas.forEach((m) => m.recoger());
+            this.monedas = [];
+
             mensaje += " ¡Era la última! Aparecen monedas nuevas.";
             setTimeout(() => this.generarMonedas(), 800);
         }
 
         mario.mostrarMensaje(mensaje);
+    }
+
+    recogerMonedaMaldita(mario, moneda) {
+        moneda.recoger(); // desaparece igual que una normal
+        this.monedas = this.monedas.filter((m) => m !== moneda);
+
+        mario.perderVida();
+
+        // Si le quedan vidas, el mensaje explica qué ha pasado
+        // (con 0 vidas se queda el de perderVida y salta el game over)
+        if (mario.vidas > 0) {
+            mario.mostrarMensaje(`¡Moneda maldita! ${mario.nombre} pierde una vida (le quedan ${mario.vidas}).`);
+        }
     }
 
     // ===================================
@@ -190,7 +217,7 @@ export class Juego {
             if (moneda.recogida) continue;
 
             const rectMoneda = moneda.elemento.getBoundingClientRect();
-            const mario = this.marios.find((m) => m.toca(rectMoneda));
+            const mario = this.marios.find((m) => !m.cayendo && m.toca(rectMoneda));
 
             if (mario) {
                 this.recogerMoneda(mario, moneda);
