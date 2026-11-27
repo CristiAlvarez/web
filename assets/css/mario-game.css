@@ -152,23 +152,27 @@ body.jsMario {
 
                         /* Cada vida: solo la imagen (cabeza recortada), sin marco ni fondo */
                         .vida {
-                            width: 46px;
-                            height: 46px;
-                            overflow: hidden;
+                            display: flex;
+                            align-items: flex-end;
+                            justify-content: center;
+                            width: 60px;
+                            height: 68px;
 
                             img {
-                                display: block;
-                                width: 100%;
+                                max-width: 100%;
+                                max-height: 100%;
+                                width: auto;
                                 height: auto;
-                                transform: scale(var(--zoom-cabeza));
-                                transform-origin: 50% 0;
-                                image-rendering: pixelated;
+                                filter: drop-shadow(0 0 8px gold) drop-shadow(0 3px 2px rgba(0, 0, 0, 0.45));
                             }
 
                             /* Vida perdida */
                             &.perdida {
                                 filter: grayscale(1) brightness(0.5);
                                 opacity: 0.45;
+                                img {
+                                    filter: grayscale(1) brightness(0.5);
+                                }
                             }
                         }
                     }
