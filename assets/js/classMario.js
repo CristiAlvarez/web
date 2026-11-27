@@ -8,7 +8,7 @@ class Mario {
     constructor(nombre = "Mario", sprite = "superMario.webp") {
         this.nombre = nombre;
         this.sprite = sprite;
-        this.vidas = 3;
+        // this.vidas = 3;
         this.x = 20;
         this.scale = 1;
         this.rotation = 0;
@@ -30,14 +30,14 @@ class Mario {
         `;
 
         // Insertar Mario en el escenario
-        this.escenario.appendChild(this.elemento);
+        this.escenario.append(this.elemento);
 
         // Actualizar posición
         this.actualizar();
 
-        get.vidas(){
-            return this.vidas;
-        }
+        // get.vidas(){
+        //     return this.vidas;
+        // }
     }
 
     // ==================================================
