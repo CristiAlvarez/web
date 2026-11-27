@@ -72,6 +72,8 @@ body.jsMario {
                         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' fill='%23c84c0c'/%3E%3Cpath d='M0 1H32M0 17H32M1 0V16M17 16V32' stroke='%23400f00' stroke-width='2' fill='none'/%3E%3C/svg%3E");
                         background-size: calc(var(--alto-suelo) / 2) calc(var(--alto-suelo) / 2);
                         image-rendering: pixelated;
+                        -webkit-mask-image: var(--mascara-suelo, none);
+                        mask-image: var(--mascara-suelo, none);
                     }
 
                     /* Panel superior: mensajes y marcador */
@@ -106,6 +108,71 @@ body.jsMario {
                         }
                     }
 
+                    /* Panel de vidas (lateral izquierdo, centrado en vertical) */
+                    .vidas {
+                        --zoom-cabeza: 2; /* más grande = más cerca de la cara */
+
+                        position: absolute;
+                        left: 0.75em;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: 5;
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 0.5em;
+
+                        padding: 0.6em 0.7em;
+                        border-radius: 8px;
+                        background: rgba(0, 0, 0, 0.45);
+                        pointer-events: none;
+
+                        &[hidden] {
+                            display: none;
+                        }
+
+                        .vidas-nombre {
+                            margin: 0;
+                            font-size: 0.9rem;
+                            font-weight: 700;
+                            color: #fff;
+                            text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
+                        }
+
+                        .vidas-lista {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.5em;
+
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        /* Cada vida: solo la imagen (cabeza recortada), sin marco ni fondo */
+                        .vida {
+                            width: 46px;
+                            height: 46px;
+                            overflow: hidden;
+
+                            img {
+                                display: block;
+                                width: 100%;
+                                height: auto;
+                                transform: scale(var(--zoom-cabeza));
+                                transform-origin: 50% 0;
+                                image-rendering: pixelated;
+                            }
+
+                            /* Vida perdida */
+                            &.perdida {
+                                filter: grayscale(1) brightness(0.5);
+                                opacity: 0.45;
+                            }
+                        }
+                    }
+
                     /* Personaje Mario (de pie sobre los ladrillos) */
                     .mario {
                         position: absolute;
@@ -133,7 +200,85 @@ body.jsMario {
                     .mario.saltando {
                         animation: salto 0.6s ease;
                     }
+                    /* Pantalla de Game Over */
+                    .gameover {
+                        position: absolute;
+                        inset: 0;
+                        z-index: 10;
 
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1.2rem;
+
+                        padding: 1em;
+                        text-align: center;
+                        color: #fff;
+                        background: radial-gradient(circle, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.92));
+                        animation: gameover-fundido 0.8s ease forwards;
+
+                        &[hidden] {
+                            display: none;
+                        }
+
+                        .gameover-titulo {
+                            margin: 0;
+                            font-size: clamp(2.5rem, 12vw, 7rem);
+                            font-weight: 900;
+                            letter-spacing: 0.05em;
+                            color: var(--color-rojo-bros-base);
+                            text-shadow:
+                                0 0.06em 0 var(--color-rojo-bros-oscuro),
+                                0 0.12em 0 #000,
+                                0 0 30px rgba(229, 37, 33, 0.8);
+                            animation: gameover-latido 1.6s ease-in-out 2s infinite;
+
+                            span {
+                                display: inline-block;
+                                opacity: 0;
+                                animation: gameover-letra 0.7s cubic-bezier(0.3, 1.6, 0.5, 1) forwards;
+                                animation-delay: calc(0.4s + var(--i) * 0.09s);
+                            }
+                        }
+
+                        .gameover-detalle {
+                            margin: 0;
+                            font-size: 1.2rem;
+                            opacity: 0;
+                            animation: gameover-aparecer 0.6s ease 1.6s forwards;
+                        }
+
+                        .gameover-boton {
+                            font: inherit;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            color: #fff;
+                            padding: 12px 28px;
+                            border: none;
+                            border-radius: 999px;
+                            background: linear-gradient(var(--color-azul-bros-base), var(--color-azul-bros-oscuro));
+                            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35);
+                            cursor: pointer;
+
+                            opacity: 0;
+                            animation: gameover-aparecer 0.6s ease 2.1s forwards;
+
+                            &:hover {
+                                filter: brightness(1.1);
+                            }
+
+                            &:active {
+                                transform: translateY(3px);
+                                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+                            }
+
+                            &:focus-visible {
+                                outline: 3px solid gold;
+                                outline-offset: 3px;
+                            }
+                        }
+                    }
                     /* Monedas (la posición se asigna desde JavaScript) */
                     .moneda {
                         position: absolute;
@@ -321,6 +466,46 @@ body.jsMario {
     }
 }
 
+/* Game Over */
+
+@keyframes gameover-fundido {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gameover-letra {
+    0% {
+        opacity: 0;
+        transform: translateY(-120vh) rotate(-25deg) scale(1.6);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes gameover-aparecer {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gameover-latido {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
 /* =====================================================
    4. DISEÑO RESPONSIVE
    ===================================================== */
@@ -356,7 +541,9 @@ body.jsMario {
 /* Respetar a quien prefiere menos movimiento */
 
 @media (prefers-reduced-motion: reduce) {
-    body.jsMario .escenario .moneda::before {
-        animation: none;
+    body.jsMario .escenario .gameover,
+    body.jsMario .escenario .gameover * {
+        animation: none !important;
+        opacity: 1 !important;
     }
 }

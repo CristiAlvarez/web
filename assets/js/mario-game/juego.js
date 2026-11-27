@@ -1,6 +1,9 @@
 import { CONFIG } from "./config.js";
 import { Mario } from "./mario.js";
 import { Moneda } from "./moneda.js";
+import { Suelo } from "./precipicio.js";
+import { PantallaGameOver } from "./gameover.js";
+import { PanelVidas } from "./vidas.js";
 
 // ===================================
 // CLASE JUEGO
@@ -19,8 +22,20 @@ export class Juego {
 
         this.monedas = []; // monedas que hay ahora en el escenario
         this.totalMonedas = 0; // monedas recogidas entre todos
+        this.suelo = new Suelo(escenario);
 
         this.marcador = document.querySelector("#contadorMonedas");
+        this.terminado = false; // true cuando hay game over
+
+        this.pantallaGameOver = new PantallaGameOver(escenario, () => this.reiniciarPartida());
+        this.escenario.addEventListener("sinvidas", (evento) => this.gameOver(evento.detail));
+
+        this.panelVidas = new PanelVidas(escenario);
+
+        // Solo se redibuja si las vidas que cambian son las del personaje activo
+        this.escenario.addEventListener("cambiovidas", (evento) => {
+            if (evento.detail === this.marioActivo) this.actualizarVidas();
+        });
     }
 
     // ===================================
@@ -30,6 +45,7 @@ export class Juego {
     iniciar() {
         this.generarMonedas();
         this.bucle();
+        this.suelo.generar();
     }
 
     // ===================================
@@ -58,6 +74,7 @@ export class Juego {
     registrar(mario) {
         this.marios.push(mario);
         this.marioActivo = mario;
+        this.actualizarVidas();
     }
 
     cambiarMarioActivo() {
@@ -66,6 +83,7 @@ export class Juego {
         const indice = (this.marios.indexOf(this.marioActivo) + 1) % this.marios.length;
 
         this.marioActivo = this.marios[indice];
+        this.actualizarVidas();
         this.marioActivo.mostrarMensaje(`${this.marioActivo.nombre} es ahora el personaje activo.`);
     }
 
@@ -73,6 +91,10 @@ export class Juego {
         if (!this.marioActivo) return;
 
         this.registrar(this.marioActivo.duplicar());
+    }
+
+    actualizarVidas() {
+        this.panelVidas.actualizar(this.marioActivo);
     }
 
     // ===================================
@@ -105,6 +127,41 @@ export class Juego {
     }
 
     // ===================================
+    // FIN DE PARTIDA
+    // ===================================
+
+    gameOver(mario) {
+        if (this.terminado) return;
+
+        this.terminado = true;
+        this.pantallaGameOver.mostrar(mario.nombre, this.totalMonedas);
+    }
+
+    reiniciarPartida() {
+        this.pantallaGameOver.ocultar();
+
+        // Quitar del escenario todo lo de la partida anterior
+        this.marios.forEach((m) => m.elemento.remove());
+        this.monedas.forEach((m) => m.elemento.remove());
+
+        this.marios = [];
+        this.marioActivo = null;
+        this.actualizarVidas();
+        this.contadorMario = 0;
+        this.monedas = [];
+        this.totalMonedas = 0;
+        this.marcador.textContent = 0;
+        document.querySelector("#info").textContent = "¡Pulsa Crear nuevo Mario para comenzar!";
+
+        // Nuevo mapa
+        this.suelo.generar();
+        this.generarMonedas();
+
+        this.terminado = false;
+        this.bucle();
+    }
+
+    // ===================================
     // COLISIONES
     // ===================================
 
@@ -122,13 +179,25 @@ export class Juego {
         }
     }
 
+    comprobarCaidas() {
+        for (const mario of this.marios) {
+            if (mario.cayendo) continue;
+
+            if (this.suelo.estaSobreVacio(mario)) {
+                mario.caer();
+            }
+        }
+    }
+
     /**
      * Bucle del juego: se repite en cada fotograma.
      * Hace falta porque Mario se mueve con una transición CSS y salta
      * con una animación: su posición real cambia sin que el código lo note.
      */
     bucle() {
+        if (this.terminado) return;
         this.comprobarColisiones();
+        this.comprobarCaidas();
         requestAnimationFrame(() => this.bucle());
     }
 }

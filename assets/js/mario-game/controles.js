@@ -12,7 +12,7 @@ const esTactil = window.matchMedia("(pointer: coarse)").matches;
 function crearAcciones(juego) {
     const activo = () => juego.marioActivo;
 
-    return {
+    const acciones = {
         crear: () => juego.crearMario(),
         cambiar: () => juego.cambiarMarioActivo(),
         avanzar: () => activo()?.avanzar(CONFIG.VELOCIDAD),
@@ -24,6 +24,14 @@ function crearAcciones(juego) {
         duplicar: () => juego.duplicarActivo(),
         reiniciar: () => activo()?.reiniciar(),
     };
+    // Con la partida terminada no se obedece ninguna orden
+    for (const [nombre, funcion] of Object.entries(acciones)) {
+        acciones[nombre] = () => {
+            if (!juego.terminado) funcion();
+        };
+    }
+
+    return acciones;
 }
 
 // id del botón -> acción

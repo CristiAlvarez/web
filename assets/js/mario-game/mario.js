@@ -13,11 +13,12 @@ export class Mario {
         this.sprite = sprite;
         this.escenario = escenario;
 
-        this.vidas = 3;
+        this.vidas = CONFIG.VIDAS_INICIALES;
         this.monedas = 0;
         this.x = 20;
         this.scale = 1;
         this.rotation = 0;
+        this.cayendo = false;
 
         // Crear elemento HTML
         this.elemento = document.createElement("figure");
@@ -28,7 +29,7 @@ export class Mario {
                 alt="${this.nombre}"
                 draggable="false"
             >
-            <figcaption>${this.nombre}</figcaption>
+            <figcaption></figcaption>
         `;
 
         // Insertar Mario en el escenario
@@ -172,6 +173,53 @@ export class Mario {
     }
 
     // ===================================
+    // CAÍDA
+    // ===================================
+
+    estaSaltando() {
+        return this.elemento.classList.contains("saltando");
+    }
+
+    /**
+     * Posición horizontal real del centro (también durante la transición).
+     * offsetLeft no cambia con scale/rotate, que giran sobre el centro inferior.
+     */
+    centroX() {
+        return this.elemento.offsetLeft + this.elemento.offsetWidth / 2;
+    }
+
+    caer() {
+        this.cayendo = true;
+        this.mostrarMensaje(`${this.nombre} cae por el precipicio.`);
+
+        const caida = this.elemento.animate([{ translate: "0 0" }, { translate: `0 ${this.escenario.clientHeight}px` }], { duration: CONFIG.DURACION_CAIDA, easing: "ease-in", fill: "forwards" });
+
+        caida.onfinish = () => {
+            this.perderVida();
+
+            // Solo vuelve al inicio si le quedan vidas
+            if (this.vidas > 0) {
+                caida.cancel();
+                this.volverAlInicio();
+            }
+
+            this.cayendo = false;
+        };
+    }
+
+    /**
+     * Vuelve a x inicial de golpe (sin deslizarse por encima del precipicio)
+     */
+    volverAlInicio() {
+        this.elemento.style.transition = "none";
+        this.x = 20;
+        this.actualizar();
+
+        void this.elemento.offsetWidth; // fuerza a aplicar el cambio sin transición
+        this.elemento.style.transition = "";
+    }
+
+    // ===================================
     // MENSAJES Y VIDAS
     // ===================================
 
@@ -182,8 +230,14 @@ export class Mario {
     perderVida() {
         this.vidas--;
 
+        // Avisa al panel de vidas (Juego escucha este evento)
+        this.escenario.dispatchEvent(new CustomEvent("cambiovidas", { detail: this }));
+
         if (this.vidas === 0) {
             this.mostrarMensaje(`${this.nombre} ha perdido todas sus vidas!`);
+
+            // Avisa a quien escuche (Juego) de que este personaje ya no tiene vidas
+            this.escenario.dispatchEvent(new CustomEvent("sinvidas", { detail: this }));
         } else {
             this.mostrarMensaje(`${this.nombre} pierde una vida. Le quedan ${this.vidas}`);
         }

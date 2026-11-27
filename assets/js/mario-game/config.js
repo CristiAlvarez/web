@@ -34,4 +34,16 @@ export const CONFIG = {
 
     // Duración (ms) de la transición al avanzar o retroceder
     VELOCIDAD: 800,
+
+    // Precipicios
+    CANTIDAD_PRECIPICIOS: 3,
+    PRECIPICIO_ANCHO_MIN: 110,
+    PRECIPICIO_ANCHO_MAX: 170,
+    PRECIPICIO_INICIO_SEGURO: 250, // no aparecen cerca de la posición inicial de Mario
+    PRECIPICIO_MARGEN_FINAL: 80, // suelo firme al final del escenario
+    PRECIPICIO_SEPARACION: 180, // distancia mínima entre dos precipicios
+    DURACION_CAIDA: 700,
+
+    // Vidas con las que empieza cada personaje
+    VIDAS_INICIALES: 3,
 };
