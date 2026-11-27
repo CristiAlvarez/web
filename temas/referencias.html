@@ -31,11 +31,14 @@
         <link rel="stylesheet" href="../assets/css/transformers.css" />
         <!-- Ruta a edición menú principal -->
         <link rel="stylesheet" href="../assets/css/menu.css" />
+        <link rel="stylesheet" href="../assets/css/footer.css" />
 
         <!-- Ruta a las tipografías -->
         <link rel="stylesheet" href="../assets/css/tipografia.css" />
         <!-- Ruta a las hojas de estilos -->
         <link rel="stylesheet" href="../assets/css/estilos.css" />
+
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 
         <!-- Enlaces a Google Fonts -->
 
@@ -50,52 +53,14 @@
     </head>
 
     <body>
-        <header>
+        <header id="header">
             <a href="#" class="no-border" title="Mi página FlexBox">
                 <figure class="logo"></figure>
                 <h1 class="pechado">Página FlexBox Cristi Álvarez</h1></a
             >
         </header>
 
-        <nav class="principal" aria-label="Navegación principal">
-            <h2 class="pechado">Menú Principal</h2>
-            <input id="icon-menu" name="icon-menu" type="checkbox" />
-            <label for="icon-menu" class="icon-menu" aria-label="Abrir/Cerrar menú">Menú</label>
-            <ul>
-                <li>
-                    <a href="../index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="#">Temas</a>
-                    <ul>
-                        <li>
-                            <a href="imagenes.html">Imágenes</a>
-                        </li>
-                        <li>
-                            <a href="transformer.html">Transiciones y transformers</a>
-                        </li>
-                        <li>
-                            <a href="responsive-carrousel.html">Carrouseles</a>
-                        </li>
-                        <li>
-                            <a href="formularios.html">Formularios</a>
-                        </li>
-                        <li>
-                            <a href="regex.html">Patterns</a>
-                        </li>
-                        <li>
-                            <a href="#">Referencias</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="legal/lopd.html">Nosotros</a>
-                </li>
-                <li>
-                    <a href="pages/contacto.html">Contacto</a>
-                </li>
-            </ul>
-        </nav>
+        <nav id="menu" class="principal" aria-label="Navegación principal"></nav>
 
         <main class="agua">
             <section>
@@ -140,11 +105,13 @@
                 </article>
             </section>
         </main>
-        <footer>
-            <p>
-                Creado por
-                <a href="https://github.com/CristiAlvarez?tab=repositories" title="CristiAlvarez | GitHub" target="_blank">CristiAlvarez </a> &copy; Nov.2026
-            </p>
-        </footer>
+        <footer id="footer"></footer>
     </body>
+    <script>
+        $(function () {
+            $("#header").load("../layouts/header.html");
+            $("#menu").load("../layouts/nav.html");
+            $("#footer").load("../layouts/footer.html");
+        });
+    </script>
 </html>
