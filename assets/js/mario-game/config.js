@@ -6,21 +6,28 @@
 
 export const CONFIG = {
     // Carpeta de las imágenes (relativa al HTML)
-    RUTA_IMG: "../assets/img/marioBros/",
+    RUTA_IMG: "../../img/superMario/",
 
     // prettier-ignore
     SPRITES: [
-        "mario.webp",
-        "luigi.webp",
-        "yoshi.webp",
-        "bowser.webp",
-        "king-boo.webp",
-        "lakitu.webp",
-        "setaAzul.webp",
-        "wario.webp"
+        "superMario.webp", 
+        "luigi.webp", 
+        "yoshi.webp", 
+        "wario.webp", 
+        "kingBoo.webp", 
+        "toadAzul.webp", 
+        "lakitu.webp", 
+        "peach.webp", 
+        "estrella.webp", 
+        "waluigi.webp", 
+        "toad.webp", 
+        "planta.webp", 
+        "donkeyKong.webp", 
+        "kameka.webp", 
+        "daisy.webp"
     ],
 
-    NOMBRES: ["Mario", "Luigi", "Yoshi", "Bowser", "King-Boo", "Lakitu", "Seta Azul", "Wario"],
+    NOMBRES: ["Mario", "Luigi", "Yoshi", "Wario", "King Boo", "Toad azul", "Lakitu", "Peach", "Estrella dorada", "Waluigi", "Toad", "Planta", "Donkey Kong", "Kameka", "Daisy"],
 
     // Monedas que aparecen en cada tanda
     CANTIDAD_MONEDAS: 8,

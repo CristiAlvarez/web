@@ -1,4 +1,4 @@
-import { Juego } from "./Juego.js";
+import { Juego } from "./juego.js";
 import { iniciarControles } from "./controles.js";
 
 // ===================================

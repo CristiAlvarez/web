@@ -1,13 +1,11 @@
-import { Juego } from "./Juego.js";
-import { iniciarControles } from "./controles.js";
-
 // ===================================
-// PUNTO DE ENTRADA
-// Crea el juego, conecta los controles y arranca.
-// Es el único archivo que carga el HTML: él importa el resto.
+// UTILIDADES
+// Funciones pequeñas que no pertenecen a ninguna clase.
 // ===================================
 
-const juego = new Juego(document.querySelector("#escenario"));
-
-iniciarControles(juego);
-juego.iniciar();
+/**
+ * Número entero aleatorio entre min y max (ambos incluidos)
+ */
+export function aleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

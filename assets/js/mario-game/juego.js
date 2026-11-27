@@ -1,6 +1,6 @@
 import { CONFIG } from "./config.js";
-import { Mario } from "./Mario.js";
-import { Moneda } from "./Moneda.js";
+import { Mario } from "./mario.js";
+import { Moneda } from "./moneda.js";
 
 // ===================================
 // CLASE JUEGO
