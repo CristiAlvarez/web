@@ -72,7 +72,7 @@ export class PantallaSeleccion {
 
         const ayuda = document.createElement("p");
         ayuda.className = "seleccion-ayuda";
-        ayuda.textContent = "Toca el personaje central para elegirlo.";
+        // ayuda.textContent = "Toca el personaje central para elegirlo.";
 
         carrusel.append(this.anterior, this.lista, this.siguiente);
         this.elemento.append(titulo, carrusel, ayuda);
