@@ -1,10 +1,12 @@
 import { CONFIG } from "./config.js";
 
 // ===================================
-// PANEL DE VIDAS
-// Columna en el lateral del escenario con una "cabeza" por vida.
-// Muestra las vidas del personaje activo: las perdidas se ven apagadas.
-// No guarda ningún dato: se dibuja a partir del Mario que reciba.
+// PANEL DE VIDAS Y MONEDAS
+// Columna en el lateral del escenario con:
+//   - el nombre y una imagen por vida del personaje activo
+//     (las vidas perdidas se ven apagadas)
+//   - el contador de monedas recogidas
+// No guarda ningún dato: se dibuja con lo que le pasen.
 // Depende de: CONFIG
 // ===================================
 
@@ -21,7 +23,23 @@ export class PanelVidas {
         this.lista = document.createElement("ul");
         this.lista.className = "vidas-lista";
 
-        this.elemento.append(this.nombre, this.lista);
+        // Contador de monedas: icono + cantidad
+        this.monedas = document.createElement("p");
+        this.monedas.className = "vidas-monedas";
+        this.monedas.setAttribute("role", "status");
+
+        const icono = document.createElement("span");
+        icono.className = "icono-moneda";
+        icono.setAttribute("aria-hidden", "true");
+
+        this.cantidad = document.createElement("span");
+        this.cantidad.className = "cantidad";
+
+        this.monedas.append(icono, this.cantidad);
+
+        this.elemento.append(this.nombre, this.lista, this.monedas);
+
+        this.actualizarMonedas(0);
 
         // Insertar el panel en el escenario
         escenario.appendChild(this.elemento);
@@ -52,7 +70,7 @@ export class PanelVidas {
                 vida.classList.add("perdida");
             }
 
-            // La imagen es el sprite completo; el CSS recorta la cabeza
+            // Imagen completa del personaje
             const imagen = document.createElement("img");
             imagen.src = CONFIG.RUTA_IMG + mario.sprite;
             imagen.alt = "";
@@ -61,5 +79,13 @@ export class PanelVidas {
             vida.appendChild(imagen);
             this.lista.appendChild(vida);
         }
+    }
+
+    /**
+     * Actualiza el contador de monedas
+     */
+    actualizarMonedas(total) {
+        this.cantidad.textContent = `× ${total}`;
+        this.monedas.setAttribute("aria-label", `Monedas: ${total}`);
     }
 }

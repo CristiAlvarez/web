@@ -25,7 +25,6 @@ export class Juego {
         this.totalMonedas = 0; // monedas recogidas entre todos
         this.suelo = new Suelo(escenario);
 
-        this.marcador = document.querySelector("#contadorMonedas");
         this.terminado = false; // true cuando hay game over
 
         this.pantallaGameOver = new PantallaGameOver(escenario, () => this.reiniciarPartida());
@@ -131,7 +130,7 @@ export class Juego {
         this.monedas = this.monedas.filter((m) => m !== moneda);
 
         this.totalMonedas++;
-        this.marcador.textContent = this.totalMonedas;
+        this.panelVidas.actualizarMonedas(this.totalMonedas);
 
         let mensaje = `${mario.nombre} coge una moneda (lleva ${mario.monedas}).`;
 
@@ -168,7 +167,7 @@ export class Juego {
         this.contadorMario = 0;
         this.monedas = [];
         this.totalMonedas = 0;
-        this.marcador.textContent = 0;
+        this.panelVidas.actualizarMonedas(0);
         document.querySelector("#info").textContent = "¡Elige un personaje para comenzar!";
 
         // Nuevo mapa
